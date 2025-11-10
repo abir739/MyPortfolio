@@ -20,7 +20,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "ceca4e54f9750083b2b14b7c07e3a7bf
 "assets/assets/images/tunisie_promo.png": "e26e779ad78e7eab4e12631f09c55a1b",
 "assets/assets/images/voyageur.png": "231e39fda9d0bcc804a351c9429ef63e",
 "assets/assets/NOTICES": "092201afc5568bd7ea73f425089669a3",
-"assets/assets/pdf/Abir_Cherif_CV_2025.pdf": "31bdc924f1063182d9126a44205b44d8",
+"assets/assets/pdf/Abir Cherif CV.pdf": "31bdc924f1063182d9126a44205b44d8",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/fonts/MaterialIcons-Regular.otf": "780d0886c8bd4d977620a12e7d67f067",
 "assets/NOTICES": "497c101d329abac0da96403fede8a9be",

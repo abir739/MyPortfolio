@@ -18,7 +18,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
   final String linkedinUrl =
       'https://www.linkedin.com/in/abir-cherif-931770202/';
   final String portfolioUrl = 'https://abir739.github.io/personal_website/';
-  final String cvPath = "assets/pdf/Abir_Cherif_CV_2025.pdf";
+  final String cvPath = "assets/pdf/Abir Cherif CV.pdf";
   final ScrollController _scrollController = ScrollController();
 
   Future<void> _launchUrl(String url, BuildContext context) async {
@@ -90,7 +90,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
 
   void _openCVInNewTab() async {
     const String cvUrl =
-        'https://abir739.github.io/personal_website/assets/pdf/Abir_Cherif_CV_2025.pdf';
+        'https://abir739.github.io/personal_website/assets/pdf/Abir Cherif CV.pdf';
 
     await _launchUrl(cvUrl, context);
   }
@@ -105,7 +105,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
 
   void _downloadCV() async {
     const String cvUrl =
-        'https://raw.githubusercontent.com/abir739/personal_website/main/assets/pdf/Abir_Cherif_CV_2025.pdf';
+        'https://raw.githubusercontent.com/abir739/personal_website/main/assets/pdf/Abir Cherif CV.pdf';
 
     if (kIsWeb) {
       // For web, show a message about downloading
@@ -401,7 +401,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'Dynamic and passionate Mobile Developer with over two years of experience building scalable Android and iOS applications. I specialize in developing clean UI/UX, scalable code, and feature-rich apps using Flutter and Dart.',
+                      'Flutter Developer specialized in high-performance cross-platform mobile applications built with MVVM architecture. Proven experience in publishing and maintaining production apps on the Google Play Store and the App Store. Expert in CI/CD pipelines, Firebase integrations, and advanced state management (GetX, BLoC, Riverpod). Committed to delivering clean, well-tested code and exceptional user experiences in Agile/Scrum environments.',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         color: Colors.grey.shade800,

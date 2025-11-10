@@ -19,11 +19,10 @@ class PortfolioApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.poppinsTextTheme(),
         scaffoldBackgroundColor: Colors.grey.shade100,
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 6,
           shadowColor: Colors.blue.withOpacity(0.3),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

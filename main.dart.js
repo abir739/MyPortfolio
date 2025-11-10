@@ -66017,7 +66017,7 @@ var $async$jd=A.L(function(a,b){if(a===1)return A.M(b,r)
 while(true)switch(s){case 0:p=q.c
 p.toString
 s=2
-return A.S(q.d5("https://abir739.github.io/personal_website/assets/pdf/Abir_Cherif_CV_2025.pdf",p),$async$jd)
+return A.S(q.d5("https://abir739.github.io/personal_website/assets/pdf/Abir Cherif CV.pdf",p),$async$jd)
 case 2:return A.N(null,r)}})
 return A.O($async$jd,r)},
 lE(){var s=0,r=A.P(t.H),q=this,p
@@ -66028,7 +66028,7 @@ p.f.qp(B.IV)
 p=q.c
 p.toString
 s=2
-return A.S(q.d5("https://raw.githubusercontent.com/abir739/personal_website/main/assets/pdf/Abir_Cherif_CV_2025.pdf",p),$async$lE)
+return A.S(q.d5("https://raw.githubusercontent.com/abir739/personal_website/assets/pdf/Abir Cherif CV.pdf",p),$async$lE)
 case 2:return A.N(null,r)}})
 return A.O($async$lE,r)},
 I(a3){var s,r,q,p=this,o="Abir Cherif",n=null,m="Continuous Net, Sousse, Tunisia",l=A.bu(o,A.bA().$2$color$fontWeight(B.i,B.a5),n),k=t.F,j=A.b([A.adE(n,B.AX,n,new A.a8y(p),n,"View CV"),A.adE(n,B.AU,n,new A.a8z(p),n,"Download CV")],k),i=t.t_,h=A.b([new A.C6(new A.de(n,n,n,n,n,new A.jN(B.jb,B.ft,B.dF,A.b([B.b7,B.O],i),n,n),B.aQ),A.bu("Menu",A.bA().$3$color$fontSize$fontWeight(B.i,24,B.a5),n),n),A.Do(B.AV,new A.a8A(p,a3),B.NI),A.Do(B.AS,new A.a8L(p,a3),B.NK),A.Do(B.B_,new A.a8N(p,a3),B.NJ),A.Do(B.AY,new A.a8O(p,a3),B.NH),A.Do(B.AW,new A.a8P(p,a3),B.NE)],k),g=A.aM([null,0],t.LO,t.S),f=A.ds(A.b([A.ahn(B.b7,B.B1,!1,new A.a8Q(p,a3),"Contact Me"),B.aM,A.ahn(B.b7,B.B0,!1,new A.a8R(p),"Back to Top")],k),B.af,B.hQ),e=A.b([B.b7,B.O],i),d=new A.bP(B.i,4,B.W,-1),c=A.lg(n,n,B.y,n,n,new A.de(n,n,new A.cV(d,d,d,d),n,n,n,B.dQ),n,n,n,n,n,n,n),b=A.bu(o,A.bA().$3$color$fontSize$fontWeight(B.i,36,B.a5),n),a=t.w,a0=A.bu("Mobile Developer | Flutter Expert",A.bA().$3$color$fontSize$fontWeight(B.C,A.bx(a3,n,a).w.a.a<600?18:22,B.B),B.cy),a1=A.bu("Monastir, Tunisia | abircherif212@gmail.com | +216 93649677",A.bA().$2$color$fontSize(B.jS,A.bx(a3,n,a).w.a.a<600?14:16),B.cy),a2=A.bx(a3,n,a).w.a.a<600?A.ds(A.b([A.ik(A.fg(A.hi(B.kr,B.f9,new A.a8S(p),n),n,1/0)),B.an,A.ik(A.fg(A.hi(B.hr,B.vV,new A.a8T(p),n),n,1/0))],k),B.af,B.L):A.iM(A.b([A.ik(A.hi(B.kr,B.f9,new A.a8B(p),n)),B.iH,A.ik(A.hi(B.hr,B.vV,new A.a8C(p),n))],k),B.af,B.eA,B.bd)
