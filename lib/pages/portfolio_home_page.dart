@@ -152,13 +152,14 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.picture_as_pdf),
+                  icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
                   onPressed: _downloadCV,
                   tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
                 ),
                 IconButton(
                   icon: Icon(
                     isFrench ? Icons.language : Icons.translate,
+                    color: Colors.white,
                   ),
                   onPressed: _toggleLanguage,
                   tooltip: isFrench ? 'English' : 'Français',
@@ -166,6 +167,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 IconButton(
                   icon: Icon(
                     isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                    color: Colors.white,
                   ),
                   onPressed: _toggleDarkMode,
                   tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
@@ -280,10 +282,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   Widget _buildDrawerItem(IconData icon, String title, double scrollPosition) {
     return ListTile(
       leading: Icon(icon, color: _primaryColor),
-      title: Text(
-        title,
-        style: GoogleFonts.poppins(color: _textColor),
-      ),
+      title: Text(title, style: GoogleFonts.poppins(color: _textColor)),
       onTap: () {
         Navigator.pop(context);
         _scrollToSection(scrollPosition);
@@ -302,12 +301,12 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ? [
                   const Color(0xFF0F2027),
                   const Color(0xFF203A43),
-                  const Color(0xFF2C5364)
+                  const Color(0xFF2C5364),
                 ]
               : [
                   Colors.blue.shade600,
                   Colors.blue.shade800,
-                  Colors.blue.shade900
+                  Colors.blue.shade900,
                 ],
         ),
       ),
@@ -335,8 +334,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ),
                     child: CircleAvatar(
                       radius: isMobile ? 80 : 100,
-                      backgroundImage:
-                          const AssetImage('assets/images/img.jpg'),
+                      backgroundImage: const AssetImage(
+                        'assets/images/img.jpg',
+                      ),
                       backgroundColor: Colors.white,
                     ),
                   ),
@@ -384,9 +384,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Colors.white.withOpacity(0.3),
-                      ),
+                      border: Border.all(color: Colors.white.withOpacity(0.3)),
                     ),
                     child: Text(
                       isFrench
@@ -630,10 +628,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         mainAxisSize: MainAxisSize.min,
         children: [
           if (image != null)
-            SizedBox(
-              height: 120,
-              child: Image.asset(image, fit: BoxFit.cover),
-            ),
+            SizedBox(height: 120, child: Image.asset(image, fit: BoxFit.cover)),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -652,14 +647,19 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 ElevatedButton.icon(
                   onPressed: () => _launchUrl(playStoreUrl),
                   icon: const Icon(Icons.android, size: 16),
-                  label:
-                      const Text('Play Store', style: TextStyle(fontSize: 13)),
+                  label: const Text(
+                    'Play Store',
+                    style: TextStyle(fontSize: 13),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
+                    ),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
                 if (appStoreUrl != null) ...[
@@ -667,14 +667,19 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ElevatedButton.icon(
                     onPressed: () => _launchUrl(appStoreUrl),
                     icon: const Icon(Icons.phone_iphone, size: 16),
-                    label:
-                        const Text('App Store', style: TextStyle(fontSize: 13)),
+                    label: const Text(
+                      'App Store',
+                      style: TextStyle(fontSize: 13),
+                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ),
                 ],
@@ -713,23 +718,35 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           if (image != null)
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(image,
-                  width: 100, height: 100, fit: BoxFit.cover),
+              child: Image.asset(
+                image,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
             ),
           if (image != null) const SizedBox(width: 20),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title,
-                    style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: _textColor)),
+                Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: _textColor,
+                  ),
+                ),
                 const SizedBox(height: 8),
-                Text(description,
-                    style: GoogleFonts.poppins(
-                        fontSize: 14, color: _subtextColor, height: 1.5)),
+                Text(
+                  description,
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: _subtextColor,
+                    height: 1.5,
+                  ),
+                ),
                 const SizedBox(height: 16),
                 Row(
                   children: [
@@ -738,7 +755,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       icon: const Icon(Icons.android, size: 18),
                       label: const Text('Play Store'),
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green),
+                        backgroundColor: Colors.green,
+                      ),
                     ),
                     if (appStoreUrl != null) ...[
                       const SizedBox(width: 12),
@@ -747,7 +765,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                         icon: const Icon(Icons.phone_iphone, size: 18),
                         label: const Text('App Store'),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black),
+                          backgroundColor: Colors.black,
+                        ),
                       ),
                     ],
                   ],
@@ -875,8 +894,10 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ),
                   ),
                   backgroundColor: Colors.blue.shade50,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
               )
@@ -895,8 +916,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           backgroundColor: Colors.blue.shade800,
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           elevation: 3,
         ),
       ),
@@ -916,27 +938,42 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      color: _primaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12)),
+                    color: _primaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Icon(Icons.build, color: _primaryColor, size: 28),
                 ),
                 const SizedBox(width: 16),
-                Text(isFrench ? 'Compétences' : 'Skills',
-                    style: GoogleFonts.poppins(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: _textColor)),
+                Text(
+                  isFrench ? 'Compétences' : 'Skills',
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: _textColor,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 24),
-            _buildSkillCategory('Programming Languages',
-                ['Dart', 'JavaScript', 'Java', 'Kotlin', 'Swift']),
+            _buildSkillCategory('Programming Languages', [
+              'Dart',
+              'JavaScript',
+              'Java',
+              'Kotlin',
+              'Swift',
+            ]),
             const SizedBox(height: 16),
-            _buildSkillCategory('Frameworks & SDKs',
-                ['Flutter', 'Firebase (Auth, Firestore, FCM, Storage)']),
+            _buildSkillCategory('Frameworks & SDKs', [
+              'Flutter',
+              'Firebase (Auth, Firestore, FCM, Storage)',
+            ]),
             const SizedBox(height: 16),
-            _buildSkillCategory(
-                'State Management', ['BLoC', 'GetX', 'Riverpod', 'Provider']),
+            _buildSkillCategory('State Management', [
+              'BLoC',
+              'GetX',
+              'Riverpod',
+              'Provider',
+            ]),
             const SizedBox(height: 16),
             _buildSkillCategory('Tools & DevOps', [
               'GoRouter',
@@ -948,7 +985,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               'Retrofit',
               'Xcode',
               'Postman',
-              'Swagger UI'
+              'Swagger UI',
             ]),
             const SizedBox(height: 16),
             _buildSkillCategory('Methodologies', [
@@ -958,7 +995,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               'Clean Architecture',
               'Atomic Design',
               'Agile/Scrum',
-              'UI/UX'
+              'UI/UX',
             ]),
           ],
         ),
@@ -970,24 +1007,32 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(category,
-            style: GoogleFonts.poppins(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: _primaryColor)),
+        Text(
+          category,
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: _primaryColor,
+          ),
+        ),
         const SizedBox(height: 8),
         Wrap(
           spacing: 12,
           runSpacing: 12,
           children: skills
-              .map((skill) => Chip(
-                    label: Text(skill,
-                        style: GoogleFonts.poppins(
-                            fontSize: 14, color: _textColor)),
-                    backgroundColor: _primaryColor.withOpacity(0.1),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  ))
+              .map(
+                (skill) => Chip(
+                  label: Text(
+                    skill,
+                    style: GoogleFonts.poppins(fontSize: 14, color: _textColor),
+                  ),
+                  backgroundColor: _primaryColor.withOpacity(0.1),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
+                ),
+              )
               .toList(),
         ),
       ],
@@ -1007,16 +1052,20 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      color: _primaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(12)),
+                    color: _primaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Icon(Icons.school, color: _primaryColor, size: 28),
                 ),
                 const SizedBox(width: 16),
-                Text(isFrench ? 'Formation' : 'Education',
-                    style: GoogleFonts.poppins(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: _textColor)),
+                Text(
+                  isFrench ? 'Formation' : 'Education',
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: _textColor,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 24),
@@ -1043,10 +1092,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     );
   }
 
-  Widget _buildEducationCard(
-      {required String title,
-      required String school,
-      required String duration}) {
+  Widget _buildEducationCard({
+    required String title,
+    required String school,
+    required String duration,
+  }) {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -1057,22 +1107,28 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title,
-              style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: _textColor)),
+          Text(
+            title,
+            style: GoogleFonts.poppins(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: _textColor,
+            ),
+          ),
           const SizedBox(height: 8),
-          Text(school,
-              style: GoogleFonts.poppins(fontSize: 15, color: _subtextColor)),
+          Text(
+            school,
+            style: GoogleFonts.poppins(fontSize: 15, color: _subtextColor),
+          ),
           const SizedBox(height: 8),
           Row(
             children: [
               Icon(Icons.calendar_today, size: 14, color: _subtextColor),
               const SizedBox(width: 8),
-              Text(duration,
-                  style:
-                      GoogleFonts.poppins(fontSize: 14, color: _subtextColor)),
+              Text(
+                duration,
+                style: GoogleFonts.poppins(fontSize: 14, color: _subtextColor),
+              ),
             ],
           ),
         ],
@@ -1098,9 +1154,10 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             Text(
               isFrench ? 'Contactez-moi' : 'Get in Touch',
               style: GoogleFonts.playfairDisplay(
-                  fontSize: 36,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+                fontSize: 36,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 16),
             Text(
@@ -1116,15 +1173,24 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               runSpacing: 16,
               alignment: WrapAlignment.center,
               children: [
-                _buildActionButton(Icons.email, 'Email Me',
-                    () => _launchUrl('mailto:abircherif212@gmail.com'),
-                    isPrimary: true),
                 _buildActionButton(
-                    Icons.code, 'GitHub', () => _launchUrl(githubUrl),
-                    isPrimary: false),
+                  Icons.email,
+                  'Email Me',
+                  () => _launchUrl('mailto:abircherif212@gmail.com'),
+                  isPrimary: true,
+                ),
                 _buildActionButton(
-                    Icons.link, 'LinkedIn', () => _launchUrl(linkedinUrl),
-                    isPrimary: false),
+                  Icons.code,
+                  'GitHub',
+                  () => _launchUrl(githubUrl),
+                  isPrimary: false,
+                ),
+                _buildActionButton(
+                  Icons.link,
+                  'LinkedIn',
+                  () => _launchUrl(linkedinUrl),
+                  isPrimary: false,
+                ),
               ],
             ),
           ],
@@ -1157,8 +1223,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         icon: Icon(icon, size: 20),
         label: Text(label),
         style: ElevatedButton.styleFrom(
-          backgroundColor:
-              isPrimary ? Colors.white : Colors.white.withOpacity(0.2),
+          backgroundColor: isPrimary
+              ? Colors.white
+              : Colors.white.withOpacity(0.2),
           foregroundColor: isPrimary ? Colors.blue.shade900 : Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
@@ -1176,7 +1243,10 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   }
 
   Widget _buildSocialButton(
-      IconData icon, VoidCallback onPressed, String tooltip) {
+    IconData icon,
+    VoidCallback onPressed,
+    String tooltip,
+  ) {
     return Tooltip(
       message: tooltip,
       child: InkWell(
@@ -1465,8 +1535,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         color: _cardColor,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color:
-              isCurrent ? _primaryColor.withOpacity(0.5) : Colors.transparent,
+          color: isCurrent
+              ? _primaryColor.withOpacity(0.5)
+              : Colors.transparent,
           width: 2,
         ),
         boxShadow: [
@@ -1510,8 +1581,10 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
               if (isCurrent)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.green.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(20),
@@ -1535,10 +1608,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               const SizedBox(width: 8),
               Text(
                 duration,
-                style: GoogleFonts.poppins(
-                  fontSize: 13,
-                  color: _subtextColor,
-                ),
+                style: GoogleFonts.poppins(fontSize: 13, color: _subtextColor),
               ),
             ],
           ),
