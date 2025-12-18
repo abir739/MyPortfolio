@@ -102,10 +102,14 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           ? ThemeData.dark().copyWith(
               scaffoldBackgroundColor: _backgroundColor,
               cardColor: _cardColor,
+              primaryColor: _primaryColor,
+              iconTheme: IconThemeData(color: _textColor),
             )
           : ThemeData.light().copyWith(
               scaffoldBackgroundColor: _backgroundColor,
               cardColor: _cardColor,
+              primaryColor: _primaryColor,
+              iconTheme: IconThemeData(color: _textColor),
             ),
       child: Scaffold(
         body: CustomScrollView(
@@ -148,14 +152,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
+                  icon: const Icon(Icons.picture_as_pdf),
                   onPressed: _downloadCV,
                   tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
                 ),
                 IconButton(
                   icon: Icon(
                     isFrench ? Icons.language : Icons.translate,
-                    color: Colors.white,
                   ),
                   onPressed: _toggleLanguage,
                   tooltip: isFrench ? 'English' : 'Français',
@@ -163,7 +166,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 IconButton(
                   icon: Icon(
                     isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                    color: Colors.white,
                   ),
                   onPressed: _toggleDarkMode,
                   tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
@@ -662,8 +664,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     required String description,
     required String githubUrl,
     String? imagePath,
-    List<String>? technologies =
-        const [], 
+    List<String>? technologies = const [],
   }) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
