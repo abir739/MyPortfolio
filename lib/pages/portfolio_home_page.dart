@@ -156,21 +156,35 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   onPressed: _downloadCV,
                   tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
                 ),
-                IconButton(
-                  icon: Icon(
-                    isFrench ? Icons.language : Icons.translate,
-                    color: Colors.white,
-                  ),
+                // IconButton(
+                //   icon: Icon(
+                //     isFrench ? Icons.settings : Icons.translate,
+                //     color: Colors.white,
+                //   ),
+                //   onPressed: _toggleLanguage,
+                //   tooltip: isFrench ? 'English' : 'Français',
+                // ),
+                TextButton(
                   onPressed: _toggleLanguage,
-                  tooltip: isFrench ? 'English' : 'Français',
-                ),
-                IconButton(
-                  icon: Icon(
-                    isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                    color: Colors.white,
+                  child: Text(
+                    isFrench ? 'English' : 'Français',
+                    style: const TextStyle(color: Colors.white),
                   ),
+                ),
+                // IconButton(
+                //   icon: Icon(
+                //     isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                //     color: Colors.white,
+                //   ),
+                //   onPressed: _toggleDarkMode,
+                //   tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
+                // ),
+                TextButton(
                   onPressed: _toggleDarkMode,
-                  tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
+                  child: Text(
+                    isDarkMode ? 'Light Mode' : 'Dark Mode',
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
                 const SizedBox(width: 8),
               ],
@@ -258,7 +272,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
             ),
             _buildDrawerItem(Icons.home, 'Home', 0),
-            _buildDrawerItem(Icons.person, 'About', 600),
+            _buildDrawerItem(Icons.account_circle, 'About', 600),
             _buildDrawerItem(Icons.work, 'Experience', 1200),
             _buildDrawerItem(Icons.code, 'Projects', 2000),
             _buildDrawerItem(Icons.star, 'Skills', 3000),
@@ -941,7 +955,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     color: _primaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(Icons.build, color: _primaryColor, size: 28),
+                  child: Icon(Icons.star, color: _primaryColor, size: 28),
                 ),
                 const SizedBox(width: 16),
                 Text(
@@ -1353,7 +1367,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     color: _primaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(Icons.person, color: _primaryColor, size: 28),
+                  child: Icon(Icons.star, color: _primaryColor, size: 28),
                 ),
                 const SizedBox(width: 16),
                 Text(
