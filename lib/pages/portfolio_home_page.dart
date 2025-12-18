@@ -340,23 +340,23 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       backgroundColor: Colors.white,
                     ),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 3),
-                      ),
-                      child: const Icon(
-                        Icons.check,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                  ),
+                  // Positioned(
+                  //   bottom: 0,
+                  //   right: 0,
+                  //   child: Container(
+                  //     padding: const EdgeInsets.all(8),
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.green,
+                  //       shape: BoxShape.circle,
+                  //       border: Border.all(color: Colors.white, width: 3),
+                  //     ),
+                  //     child: const Icon(
+                  //       Icons.check,
+                  //       color: Colors.white,
+                  //       size: 20,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -500,35 +500,66 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ],
             ),
             const SizedBox(height: 24),
-            // Sunshine Vacances
-            _buildReleasedAppCard(
-              title: 'Sunshine Vacances',
-              description: isFrench
-                  ? 'Application de gestion de voyages : réclamations, hébergements, transferts. Intégrations Firebase, HTTP et APIs REST.'
-                  : 'Travel management app: claims, accommodations, transfers. Firebase, HTTP, and REST API integrations.',
-              playStoreUrl:
-                  'https://play.google.com/store/apps/details?id=com.zenify_client_app',
-              image: 'assets/images/sunshine.png',
-            ),
-            const SizedBox(height: 16),
-            // ZenifyTrip
-            _buildReleasedAppCard(
-              title: 'ZenifyTrip',
-              description: isFrench
-                  ? 'Application cliente pour la découverte et réservation d\'activités de voyage en temps réel.'
-                  : 'Client app for discovering and booking travel activities in real-time.',
-              playStoreUrl: 'https://zenifytrip.com/',
-              image: 'assets/images/zenify_trip.png',
-            ),
-            const SizedBox(height: 16),
-            // Tunisie Promo
-            _buildReleasedAppCard(
-              title: 'Tunisie Promo',
-              description: isFrench
-                  ? 'Application de découverte de promotions et offres exclusives en Tunisie.'
-                  : 'App for discovering promotions and exclusive offers in Tunisia.',
-              playStoreUrl: 'https://www.tunisiepromo.tn/',
-              image: 'assets/images/tunisie_promo.png',
+            const SizedBox(height: 24),
+            Container(
+              constraints: const BoxConstraints(maxWidth: 1200),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final isCompact = constraints.maxWidth < 600;
+                  return isCompact
+                      ? Column(
+                          children: [
+                            _buildCompactReleasedApp(
+                              title: 'Sunshine Vacances',
+                              playStoreUrl:
+                                  'https://play.google.com/store/apps/details?id=com.zenify_client_app',
+                              image: 'assets/images/sunshine.png',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildCompactReleasedApp(
+                              title: 'ZenifyTrip',
+                              playStoreUrl: 'https://zenifytrip.com/',
+                              image: 'assets/images/zenify_trip.png',
+                            ),
+                            const SizedBox(height: 16),
+                            _buildCompactReleasedApp(
+                              title: 'Tunisie Promo',
+                              playStoreUrl: 'https://www.tunisiepromo.tn/',
+                              image: 'assets/images/tunisie_promo.png',
+                            ),
+                          ],
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: _buildCompactReleasedApp(
+                                title: 'Sunshine Vacances',
+                                playStoreUrl:
+                                    'https://play.google.com/store/apps/details?id=com.zenify_client_app',
+                                image: 'assets/images/sunshine.png',
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: _buildCompactReleasedApp(
+                                title: 'ZenifyTrip',
+                                playStoreUrl: 'https://zenifytrip.com/',
+                                image: 'assets/images/zenify_trip.png',
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: _buildCompactReleasedApp(
+                                title: 'Tunisie Promo',
+                                playStoreUrl: 'https://www.tunisiepromo.tn/',
+                                image: 'assets/images/tunisie_promo.png',
+                              ),
+                            ),
+                          ],
+                        );
+                },
+              ),
             ),
             const SizedBox(height: 40),
             Text(
@@ -581,6 +612,76 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildCompactReleasedApp({
+    required String title,
+    required String playStoreUrl,
+    String? appStoreUrl,
+    String? image,
+  }) {
+    return Card(
+      elevation: isDarkMode ? 4 : 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (image != null)
+            SizedBox(
+              height: 120,
+              child: Image.asset(image, fit: BoxFit.cover),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: _textColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                ElevatedButton.icon(
+                  onPressed: () => _launchUrl(playStoreUrl),
+                  icon: const Icon(Icons.android, size: 16),
+                  label:
+                      const Text('Play Store', style: TextStyle(fontSize: 13)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ),
+                if (appStoreUrl != null) ...[
+                  const SizedBox(height: 8),
+                  ElevatedButton.icon(
+                    onPressed: () => _launchUrl(appStoreUrl),
+                    icon: const Icon(Icons.phone_iphone, size: 16),
+                    label:
+                        const Text('App Store', style: TextStyle(fontSize: 13)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -951,7 +1052,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       decoration: BoxDecoration(
         color: _cardColor,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [/* same */],
+        boxShadow: const [/* same */],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
