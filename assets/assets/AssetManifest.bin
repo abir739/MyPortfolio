@@ -1,5 +1,10 @@
 Abir Cherif CVAbir Cherif CV
-#assets/images/developer_6214059.png
+assets/AssetManifest.bin
+assetassets/AssetManifest.binassets/AssetManifest.bin.json
+assetassets/AssetManifest.bin.jsonassets/AssetManifest.json
+assetassets/AssetManifest.jsonassets/FontManifest.json
+assetassets/FontManifest.jsonassets/NOTICES
+assetassets/NOTICES#assets/images/developer_6214059.png
 asset#assets/images/developer_6214059.pngassets/images/guide_app.png
 assetassets/images/guide_app.pngassets/images/habit_tracker.png
 assetassets/images/habit_tracker.pngassets/images/img.jpg
@@ -10,16 +15,4 @@ Abir Cherif CVAbir Cherif CV
 assetassets/images/tunisie_promo.pngassets/images/voyageur.png
 assetassets/images/voyageur.png"assets/pdf/Abir_Cherif_CV_2025.pdf
 asset"assets/pdf/Abir_Cherif_CV_2025.pdf2packages/cupertino_icons/assets/CupertinoIcons.ttf
-asset2packages/cupertino_icons/assets/CupertinoIcons.ttf;packages/flutter_inappwebview/assets/t_rex_runner/t-rex.css
-asset;packages/flutter_inappwebview/assets/t_rex_runner/t-rex.css<packages/flutter_inappwebview/assets/t_rex_runner/t-rex.html
-asset<packages/flutter_inappwebview/assets/t_rex_runner/t-rex.html;packages/flutter_inappwebview_web/assets/web/web_support.js
-asset;packages/flutter_inappwebview_web/assets/web/web_support.jsIpackages/syncfusion_flutter_pdfviewer/assets/fonts/RobotoMono-Regular.ttf
-assetIpackages/syncfusion_flutter_pdfviewer/assets/fonts/RobotoMono-Regular.ttfEpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/highlight.png
-assetEpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/highlight.pngDpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/squiggly.png
-assetDpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/squiggly.pngIpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/strikethrough.png
-assetIpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/strikethrough.pngEpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/underline.png
-assetEpackages/syncfusion_flutter_pdfviewer/assets/icons/dark/underline.pngFpackages/syncfusion_flutter_pdfviewer/assets/icons/light/highlight.png
-assetFpackages/syncfusion_flutter_pdfviewer/assets/icons/light/highlight.pngEpackages/syncfusion_flutter_pdfviewer/assets/icons/light/squiggly.png
-assetEpackages/syncfusion_flutter_pdfviewer/assets/icons/light/squiggly.pngJpackages/syncfusion_flutter_pdfviewer/assets/icons/light/strikethrough.png
-assetJpackages/syncfusion_flutter_pdfviewer/assets/icons/light/strikethrough.pngFpackages/syncfusion_flutter_pdfviewer/assets/icons/light/underline.png
-assetFpackages/syncfusion_flutter_pdfviewer/assets/icons/light/underline.png
+asset2packages/cupertino_icons/assets/CupertinoIcons.ttf
