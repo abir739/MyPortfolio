@@ -20,7 +20,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   final String linkedinUrl =
       'https://www.linkedin.com/in/abir-cherif-931770202/';
   final String cvEnglishUrl =
-      'https://abir739.github.io/MyPortfolio/assets/pdf/abir_cherif_cv_en';
+      'https://abir739.github.io/MyPortfolio/assets/pdf/abir_cherif_cv_en.pdf';
   final String cvFrenchUrl =
       'https://abir739.github.io/MyPortfolio/assets/pdf/abir_cherif_cv_fr.pdf';
   final ScrollController _scrollController = ScrollController();
@@ -54,11 +54,67 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     super.dispose();
   }
 
+  // Future<void> _launchUrl(String url) async {
+  //   final Uri uri = Uri.parse(url);
+  //   if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+  //     if (!await launchUrl(uri, mode: LaunchMode.inAppWebView)) {
+  //       await launchUrl(uri);
+  //     }
+  //   }
+  // }
   Future<void> _launchUrl(String url) async {
     final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      if (!await launchUrl(uri, mode: LaunchMode.inAppWebView)) {
-        await launchUrl(uri);
+
+    try {
+      // For web platform, use webOnlyWindowName for mailto links
+      if (kIsWeb && url.startsWith('mailto:')) {
+        await launchUrl(
+          uri,
+          mode: LaunchMode.platformDefault,
+          webOnlyWindowName: '_self', // Open in same tab
+        );
+      }
+      // For web platform, other links
+      else if (kIsWeb) {
+        await launchUrl(
+          uri,
+          mode: LaunchMode.platformDefault,
+          webOnlyWindowName: '_blank', // Open in new tab
+        );
+      }
+      // For mobile/desktop platforms
+      else {
+        final canLaunch = await canLaunchUrl(uri);
+
+        if (!canLaunch) {
+          throw 'Cannot launch this URL';
+        }
+
+        LaunchMode mode;
+        if (url.startsWith('mailto:') ||
+            url.startsWith('tel:') ||
+            url.startsWith('sms:')) {
+          mode = LaunchMode.platformDefault;
+        } else {
+          mode = LaunchMode.externalApplication;
+        }
+
+        await launchUrl(uri, mode: mode);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              isFrench ? 'Impossible d\'ouvrir le lien' : 'Could not open link',
+            ),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+
+      if (kDebugMode) {
+        print('Error launching URL: $e');
       }
     }
   }
@@ -95,7 +151,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   @override
   Widget build(BuildContext context) {
     final isMobile = MediaQuery.of(context).size.width < 600;
-    final isTablet = MediaQuery.of(context).size.width < 900;
 
     return Theme(
       data: isDarkMode
@@ -1101,7 +1156,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       padding: const EdgeInsets.all(24),
       color: isDarkMode ? const Color(0xFF0A0E27) : Colors.grey.shade100,
       child: Text(
-        '© 2025 Abir Cherif. All rights reserved.',
+        // '© 2025 Abir Cherif. All rights reserved.',
+         '© 2025 Abir Cherif. Mobile App Developer.',
         style: GoogleFonts.poppins(fontSize: 14, color: _subtextColor),
         textAlign: TextAlign.center,
       ),

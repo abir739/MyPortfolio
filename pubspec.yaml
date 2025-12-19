@@ -32,6 +32,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/pdf/
+    - assets/pdf/abir_cherif_cv_en.pdf
+    - assets/pdf/abir_cherif_cv_fr.pdf
   
 
 
