@@ -20,9 +20,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   final String linkedinUrl =
       'https://www.linkedin.com/in/abir-cherif-931770202/';
   final String cvEnglishUrl =
-      'https://abir739.github.io/MyPortfolio/assets/pdf/Abir Cherif CV.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/pdf/abir_cherif_cv_en';
   final String cvFrenchUrl =
-      'https://abir739.github.io/MyPortfolio/assets/pdf/Abir Cherif CV_fr.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/pdf/abir_cherif_cv_fr.pdf';
   final ScrollController _scrollController = ScrollController();
   late AnimationController _fabAnimationController;
   bool _showFab = false;
