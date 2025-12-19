@@ -156,35 +156,21 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   onPressed: _downloadCV,
                   tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
                 ),
-                // IconButton(
-                //   icon: Icon(
-                //     isFrench ? Icons.settings : Icons.translate,
-                //     color: Colors.white,
-                //   ),
-                //   onPressed: _toggleLanguage,
-                //   tooltip: isFrench ? 'English' : 'Français',
-                // ),
-                TextButton(
+                IconButton(
+                  icon: Icon(
+                    isFrench ? Icons.language : Icons.translate,
+                    color: Colors.white,
+                  ),
                   onPressed: _toggleLanguage,
-                  child: Text(
-                    isFrench ? 'English' : 'Français',
-                    style: const TextStyle(color: Colors.white),
-                  ),
+                  tooltip: isFrench ? 'English' : 'Français',
                 ),
-                // IconButton(
-                //   icon: Icon(
-                //     isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                //     color: Colors.white,
-                //   ),
-                //   onPressed: _toggleDarkMode,
-                //   tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
-                // ),
-                TextButton(
-                  onPressed: _toggleDarkMode,
-                  child: Text(
-                    isDarkMode ? 'Light Mode' : 'Dark Mode',
-                    style: const TextStyle(color: Colors.white),
+                IconButton(
+                  icon: Icon(
+                    isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                    color: Colors.white,
                   ),
+                  onPressed: _toggleDarkMode,
+                  tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
                 ),
                 const SizedBox(width: 8),
               ],
@@ -354,23 +340,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       backgroundColor: Colors.white,
                     ),
                   ),
-                  // Positioned(
-                  //   bottom: 0,
-                  //   right: 0,
-                  //   child: Container(
-                  //     padding: const EdgeInsets.all(8),
-                  //     decoration: BoxDecoration(
-                  //       color: Colors.green,
-                  //       shape: BoxShape.circle,
-                  //       border: Border.all(color: Colors.white, width: 3),
-                  //     ),
-                  //     child: const Icon(
-                  //       Icons.check,
-                  //       color: Colors.white,
-                  //       size: 20,
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -523,6 +492,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                           children: [
                             _buildCompactReleasedApp(
                               title: 'Sunshine Vacances',
+                              appStoreUrl: 'https://apps.apple.com/fr/developer/continuousnet/id1772875128',
                               playStoreUrl:
                                   'https://play.google.com/store/apps/details?id=com.zenify_client_app',
                               image: 'assets/images/sunshine.png',
@@ -1278,65 +1248,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       ),
     );
   }
-
-  // Widget _buildQuickStats() {
-  //   return FadeInUp(
-  //     duration: const Duration(milliseconds: 800),
-  //     child: Container(
-  //       margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-  //       padding: const EdgeInsets.all(24),
-  //       decoration: BoxDecoration(
-  //         color: _cardColor,
-  //         borderRadius: BorderRadius.circular(20),
-  //         boxShadow: [
-  //           BoxShadow(
-  //             color: isDarkMode
-  //                 ? Colors.black.withOpacity(0.3)
-  //                 : Colors.grey.withOpacity(0.1),
-  //             blurRadius: 20,
-  //             spreadRadius: 5,
-  //           ),
-  //         ],
-  //       ),
-  //       child: Row(
-  //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-  //         children: [
-  //           _buildStatItem(
-  //               '2+', isFrench ? 'Années' : 'Years', Icons.work_history),
-  //           _buildStatItem(
-  //               '3', isFrench ? 'Apps' : 'Apps', Icons.phone_android),
-  //           _buildStatItem(
-  //               '15+', isFrench ? 'Projets' : 'Projects', Icons.code),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget _buildStatItem(String value, String label, IconData icon) {
-  //   return Column(
-  //     children: [
-  //       Icon(icon, color: _primaryColor, size: 32),
-  //       const SizedBox(height: 8),
-  //       Text(
-  //         value,
-  //         style: GoogleFonts.poppins(
-  //           fontSize: 28,
-  //           fontWeight: FontWeight.bold,
-  //           color: _textColor,
-  //         ),
-  //       ),
-  //       Text(
-  //         label,
-  //         style: GoogleFonts.poppins(
-  //           fontSize: 14,
-  //           color: _subtextColor,
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
-
   Widget _buildAboutSection() {
     return FadeInLeft(
       duration: const Duration(milliseconds: 800),
@@ -1367,7 +1278,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     color: _primaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(Icons.star, color: _primaryColor, size: 28),
+                  child: Icon(Icons.account_circle, color: _primaryColor, size: 28),
                 ),
                 const SizedBox(width: 16),
                 Text(
