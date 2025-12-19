@@ -20,9 +20,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   final String linkedinUrl =
       'https://www.linkedin.com/in/abir-cherif-931770202/';
   final String cvEnglishUrl =
-      'https://abir739.github.io/personal_website/assets/pdf/Abir Cherif CV.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/pdf/Abir Cherif CV.pdf';
   final String cvFrenchUrl =
-      'https://abir739.github.io/personal_website/assets/pdf/Abir Cherif CV_fr.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/pdf/Abir Cherif CV_fr.pdf';
   final ScrollController _scrollController = ScrollController();
   late AnimationController _fabAnimationController;
   bool _showFab = false;
@@ -152,11 +152,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
-                  onPressed: _downloadCV,
-                  tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
-                ),
-                IconButton(
                   icon: Icon(
                     isFrench ? Icons.language : Icons.translate,
                     color: Colors.white,
@@ -171,6 +166,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ),
                   onPressed: _toggleDarkMode,
                   tooltip: isDarkMode ? 'Light Mode' : 'Dark Mode',
+                ),
+                IconButton(
+                  icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
+                  onPressed: _downloadCV,
+                  tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
                 ),
                 const SizedBox(width: 8),
               ],
@@ -492,7 +492,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                           children: [
                             _buildCompactReleasedApp(
                               title: 'Sunshine Vacances',
-                              appStoreUrl: 'https://apps.apple.com/fr/developer/continuousnet/id1772875128',
+                              appStoreUrl:
+                                  'https://apps.apple.com/fr/developer/continuousnet/id1772875128',
                               playStoreUrl:
                                   'https://play.google.com/store/apps/details?id=com.zenify_client_app',
                               image: 'assets/images/sunshine.png',
@@ -667,94 +668,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ),
                   ),
                 ],
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildReleasedAppCard({
-    required String title,
-    required String description,
-    required String playStoreUrl,
-    String? appStoreUrl,
-    String? image,
-  }) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: _cardColor,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: isDarkMode
-                ? Colors.black.withOpacity(0.3)
-                : Colors.grey.withOpacity(0.1),
-            blurRadius: 10,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          if (image != null)
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                image,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              ),
-            ),
-          if (image != null) const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: _textColor,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  description,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: _subtextColor,
-                    height: 1.5,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: () => _launchUrl(playStoreUrl),
-                      icon: const Icon(Icons.android, size: 18),
-                      label: const Text('Play Store'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                      ),
-                    ),
-                    if (appStoreUrl != null) ...[
-                      const SizedBox(width: 12),
-                      ElevatedButton.icon(
-                        onPressed: () => _launchUrl(appStoreUrl),
-                        icon: const Icon(Icons.phone_iphone, size: 18),
-                        label: const Text('App Store'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
               ],
             ),
           ),
@@ -1248,6 +1161,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       ),
     );
   }
+
   Widget _buildAboutSection() {
     return FadeInLeft(
       duration: const Duration(milliseconds: 800),
@@ -1278,7 +1192,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     color: _primaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(Icons.account_circle, color: _primaryColor, size: 28),
+                  child: Icon(
+                    Icons.account_circle,
+                    color: _primaryColor,
+                    size: 28,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Text(
