@@ -30,10 +30,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/assets/pdf/
     - assets/images/
     - assets/pdf/
     - assets/pdf/Abir_Cherif_CVen_2026.pdf
     - assets/pdf/Abir_Cherif_CVfr_2026.pdf
+    - assets/assets/pdf/Abir_Cherif_CVfr_2026.pdf
+    - assets/assets/pdf/Abir_Cherif_CVen_2026.pdf
   
 
 
