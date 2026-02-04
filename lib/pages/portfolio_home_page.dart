@@ -20,9 +20,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   final String linkedinUrl =
       'https://www.linkedin.com/in/abir-cherif-931770202/';
   final String cvEnglishUrl =
-      'https://abir739.github.io/MyPortfolio/assets/assets/pdf/abir_cherif_cv_en.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/assets/pdf/Abir_Cherif_CVen_2026.pdf';
   final String cvFrenchUrl =
-      'https://abir739.github.io/MyPortfolio/assets/assets/pdf/abir_cherif_cv_fr.pdf';
+      'https://abir739.github.io/MyPortfolio/assets/assets/pdf/Abir_Cherif_CVfr_2026.pdf';
   final ScrollController _scrollController = ScrollController();
   late AnimationController _fabAnimationController;
   bool _showFab = false;
@@ -1157,7 +1157,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       color: isDarkMode ? const Color(0xFF0A0E27) : Colors.grey.shade100,
       child: Text(
         // '© 2025 Abir Cherif. All rights reserved.',
-         '© 2025 Abir Cherif. Mobile App Developer.',
+        '© 2025 Abir Cherif. Mobile App Developer.',
         style: GoogleFonts.poppins(fontSize: 14, color: _subtextColor),
         textAlign: TextAlign.center,
       ),
@@ -1284,7 +1284,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 _buildHighlightChip('MVVM & Clean Architecture'),
                 _buildHighlightChip('Google Play Store, App Store'),
                 _buildHighlightChip('CI/CD Pipelines'),
-                _buildHighlightChip('BLoC, GetX, Riverpod'),
+                _buildHighlightChip('BLoC, GetX, Riverpod, Provider'),
                 _buildHighlightChip('Atomic Design,  GoRouter (Navigator 2.0)'),
                 _buildHighlightChip('Firebase Expert'),
                 _buildHighlightChip('Agile/Scrum'),
@@ -1378,8 +1378,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ? 'Conception de packages Flutter réutilisables et d’un Design System partagé, intégrés viapub/path dependencies, réduisant le temps de développement de 40 % sur les projets white-label.'
                     : 'Designed and maintained reusable Flutter packages and shared design systems, enabling code sharing across white-label apps and reducing development time by 40%',
                 isFrench
-                    ? 'Gestion d’état et de routing complexes avec Riverpod, GetX, GetIt et Provider, optimisation réseau avec Dio/Retrofit, atteignant 80 % de couverture de tests via GitLab CI/CD et Rédaction d’une documentation technique claire pour faciliter l’onboarding. '
-                    : ' Implemented advanced state management and routing using Riverpod, BLoC, GetX, GetIt, and GoRouter (Navigator 2.0) with deep linking, guards, and nested routes, achieving 80% test coverage via GitLab CI/CD.',
+                    ? 'Gestion d’état et de routing complexes avec Riverpod, GetX, et Provider, optimisation réseau avec Dio/Retrofit, atteignant 80 % de couverture de tests via GitLab CI/CD et Rédaction d’une documentation technique claire pour faciliter l’onboarding. '
+                    : ' Implemented advanced state management and routing using Riverpod, Provider, GetX, and GoRouter (Navigator 2.0) with deep linking, guards, and nested routes, achieving 80% test coverage via GitLab CI/CD.',
               ],
               true,
             ),
