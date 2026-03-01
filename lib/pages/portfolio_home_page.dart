@@ -54,14 +54,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     super.dispose();
   }
 
-  // Future<void> _launchUrl(String url) async {
-  //   final Uri uri = Uri.parse(url);
-  //   if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-  //     if (!await launchUrl(uri, mode: LaunchMode.inAppWebView)) {
-  //       await launchUrl(uri);
-  //     }
-  //   }
-  // }
   Future<void> _launchUrl(String url) async {
     final Uri uri = Uri.parse(url);
 
@@ -610,9 +602,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             const SizedBox(height: 16),
             _buildPersonalProjectCard(
+              title: 'ImageFlow – Smart Image Processing & OCR App',
+              description:
+                  'An intelligent Flutter application that automatically detects and processes images using ML Kit. Supports face detection with B&W filtering and document scanning with OCR text extraction.',
+              githubUrl: 'https://github.com/abir739/imageflow_flutter',
+              imagePath: 'assets/images/imageflow.png',
+            ),
+            const SizedBox(height: 16),
+            _buildPersonalProjectCard(
               title: 'Instagram Clone',
               description:
-                  'Clone Instagram avec authentification Firebase, feed et chat.',
+                  'Instagram clone built using Flutter and Firebase. It allows users to sign up, log in, and share photos and videos with their followers. With features like liking, commenting, and following, users can engage with each other just like on the real Instagram app.',
               githubUrl: 'https://github.com/abir739/Instagram-Clone',
               imagePath: 'assets/images/instagram_clone.png',
             ),
