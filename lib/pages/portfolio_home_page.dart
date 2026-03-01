@@ -602,7 +602,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
             const SizedBox(height: 16),
             _buildPersonalProjectCard(
-              title: 'ImageFlow – Smart Image Processing & OCR App',
+              title: 'ImageFlow – Smart Image Processing & OCR App ',
               description:
                   'An intelligent Flutter application that automatically detects and processes images using ML Kit. Supports face detection with B&W filtering and document scanning with OCR text extraction.',
               githubUrl: 'https://github.com/abir739/imageflow_flutter',
