@@ -139,7 +139,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               child: Column(
                 children: [
                   _buildHeroSection(isMobile),
-                  _buildStatsSection(isMobile),
+                  // _buildStatsSection(isMobile),
                   _buildAboutSection(),
                   _buildWhatIDoSection(isMobile),
                   _buildExperienceSection(),
