@@ -583,7 +583,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isMobile ? WrapAlignment.center : WrapAlignment.start,
           children: [
             _heroPrimaryBtn(
-              Icons.visibility_rounded,
+              Icons.visibility,
               isFrench ? 'Voir CV' : 'View CV',
               () => _launchUrl(isFrench ? cvFrenchUrl : cvEnglishUrl),
             ),
