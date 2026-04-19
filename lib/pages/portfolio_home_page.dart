@@ -588,7 +588,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               () => _launchUrl(isFrench ? cvFrenchUrl : cvEnglishUrl),
             ),
             _heroOutlineBtn(
-              Icons.download_rounded,
+              Icons.download,
               isFrench ? 'Télécharger' : 'Download CV',
               _downloadCV,
             ),
@@ -608,7 +608,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,
           children: [
             _buildSocialButton(
-                Icons.code_rounded, () => _launchUrl(githubUrl), 'GitHub'),
+                Icons.code, () => _launchUrl(githubUrl), 'GitHub'),
             const SizedBox(width: 12),
             _buildSocialButton(Icons.work,
                 () => _launchUrl(linkedinUrl), 'LinkedIn'),
@@ -684,7 +684,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       {
         'value': '3',
         'label': isFrench ? 'Apps en Production' : 'Production Apps',
-        'icon': Icons.phone_android_rounded
+        'icon': Icons.phone_android
       },
       {
         'value': '6+',
@@ -889,7 +889,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   Widget _buildWhatIDoSection(bool isMobile) {
     final specialties = [
       {
-        'icon': Icons.phone_android_rounded,
+        'icon': Icons.phone_android,
         'title': isFrench ? 'Dev Flutter' : 'Flutter Development',
         'desc': isFrench
             ? 'Apps cross-platform haute performance pour Android & iOS avec architecture scalable'
@@ -1841,7 +1841,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.code_rounded,
+              const Icon(Icons.code,
                   color: Colors.white, size: 16),
               const SizedBox(width: 8),
               Text(
@@ -1877,13 +1877,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               final col1 = [
                 _buildSkillCategoryCard(
                     isFrench ? 'Langages' : 'Languages',
-                    Icons.code_rounded,
+                    Icons.code,
                     ['Dart', 'JavaScript', 'Kotlin', 'Swift'],
                     const Color(0xFF7C3AED)),
                 const SizedBox(height: 16),
                 _buildSkillCategoryCard(
                     isFrench ? 'Développement Mobile' : 'Mobile Dev',
-                    Icons.phone_android_rounded,
+                    Icons.phone_android,
                     ['Flutter', 'Firebase', 'Android', 'iOS'],
                     const Color(0xFF0EA5E9)),
               ];
@@ -2223,7 +2223,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     'abircherif212@gmail.com',
                     () => _launchUrl(
                         'mailto:abircherif212@gmail.com')),
-                _buildContactCard(Icons.code_rounded, 'GitHub',
+                _buildContactCard(Icons.code, 'GitHub',
                     'github.com/abir739', () => _launchUrl(githubUrl)),
                 _buildContactCard(Icons.work, 'LinkedIn',
                     'Abir Cherif', () => _launchUrl(linkedinUrl)),
