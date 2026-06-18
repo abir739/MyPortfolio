@@ -1138,43 +1138,49 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             const SizedBox(height: 24),
             _buildTimelineCard(
               title: isFrench
-                  ? 'Ingénieure Logiciel Mobile'
+                  ? 'Développeuse Mobile'
                   : 'Mobile Software Engineer',
               company: 'Continuous Net',
               duration: isFrench ? 'Juil 2023 – Présent' : 'Jul 2023 – Present',
               isCurrent: true,
               points: [
                 isFrench
-                    ? 'Responsable du développement mobile en tant qu\'ingénieure principale pour des applications en production (iOS & Android), avec gestion complète du cycle de vie : de l\'architecture jusqu\'à la publication sur les stores (Sunshine Vacances, ZenifyTrip, TunisiePromo).'
-                    : 'Led mobile development as the primary mobile engineer for production apps (iOS & Android), owning the full lifecycle from architecture to store release (Sunshine Vacances, ZenifyTrip, TunisiePromo).',
+                    ? 'Conception d\'un monorepo Flutter de 7 packages et d\'une plateforme en marque blanche pour 4 marques, réduisant le temps de livraison par marque de 57 % grâce à l\'isolation modulaire des fonctionnalités.'
+                    : 'Architected a 7-package Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation.',
                 isFrench
-                    ? 'Conception et livraison d\'une plateforme Flutter scalable multi-flavors (marque blanche) supportant 4 marques, avec configuration multi-tenant et un SDK modulaire (7+ packages internes), réduisant le temps de développement d\'environ 40%.'
-                    : 'Architected and delivered a scalable multi-flavor (white-label) Flutter platform supporting 4 brands, with multi-tenant configuration and a modular SDK (7+ internal packages), reducing development time by ~40%.',
+                    ? 'Conception et mise en œuvre d\'une architecture Clean orientée fonctionnalités, suivant les principes SOLID et l\'injection de dépendances, permettant la gestion par feature-flag et l\'accès basé sur les rôles pour des fonctionnalités spécifiques à chaque marque.'
+                    : 'Designed and implemented feature-driven Clean Architecture following SOLID principles and DI, enabling feature-flag and role-based access systems for brand-specific functionality.',
                 isFrench
-                    ? 'Mise en place d\'une Clean Architecture orientée fonctionnalités avec injection de dépendances, réduisant la dette technique et facilitant l\'intégration des nouveaux développeurs.'
-                    : 'Designed and implemented a feature-driven Clean Architecture with dependency injection, reducing technical debt and accelerating onboarding for new developers.',
+                    ? 'Mise en place d\'un pipeline GitLab CI/CD + Fastlane tridimensionnel (environnement × marque × rôle utilisateur), automatisant entièrement les workflows de build, signature et déploiement, éliminant ainsi les erreurs de publication manuelles.'
+                    : 'Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment x brand x user role), fully automating build, signing, and deployment workflows and eliminating manual release errors.',
                 isFrench
-                    ? 'Développement de couches applicatives scalables utilisant des APIs REST (Dio), la navigation (GoRouter) et la gestion d\'état (Riverpod et Provider), incluant le caching (Hive), la communication en temps réel via WebSockets et l\'intégration de solutions de paiement sécurisées.'
-                    : 'Built scalable application layers using REST APIs (Dio), navigation (GoRouter), and state management (Riverpod and Provider), including caching (Hive), real-time communication via WebSockets, and secure payment gateway integration.',
+                    ? 'Développement d\'applications Flutter évolutives avec intégrations de paiement, WebSockets, deep linking, notifications push et architecture offline-first, utilisant Riverpod, Dio et Hive.'
+                    : 'Developed scalable Flutter apps with payment integrations, WebSockets, deep linking, push notifications, and offline-first architecture using Riverpod, Dio, and Hive.',
                 isFrench
-                    ? 'Intégration des services Firebase (Authentication, Cloud Messaging, App Distribution) et OneSignal pour les notifications push, avec prise en charge du multilingue (EN/FR/AR) et du RTL.'
-                    : 'Integrated Firebase services (Authentication, Cloud Messaging, App Distribution) and OneSignal for push notifications, supporting multilingual apps (EN/FR/AR) with RTL.',
+                    ? 'Intégration de Firebase (Authentication, FCM, App Distribution) et OneSignal, supportant des applications multilingues (EN/FR/AR), des interfaces RTL et l\'engagement utilisateur en temps réel.'
+                    : 'Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, supporting multilingual applications (EN/FR/AR), RTL layouts, and real-time user engagement.',
                 isFrench
-                    ? 'Conception et optimisation de pipelines CI/CD (GitLab, Fastlane) avec builds multi-flavors, et gestion complète du cycle de release : soumission aux stores, signature, conformité et documentation technique.'
-                    : 'Designed and optimized CI/CD pipelines (GitLab, Fastlane) with multi-flavor builds, managing full release lifecycle: store submission, signing, compliance, and technical documentation.',
+                    ? 'Responsabilité complète du cycle de vie de 3 apps en production pour 4 marques de voyage, incluant la gestion des publications sur l\'App Store et Google Play, la conformité et la livraison continue.'
+                    : 'Owned the full lifecycle of 3 production apps (architecture → deployment) across 4 travel brands, managing App Store and Google Play releases, compliance, and continuous delivery.',
+                isFrench
+                    ? 'Leadership sur les décisions techniques mobiles et collaboration inter-équipes (backend, QA), améliorant la qualité d\'intégration des API et réduisant les cycles d\'itération grâce à une validation précoce et des revues de code structurées.'
+                    : 'Led mobile technical decisions and cross-team collaboration (backend, QA), improving API integration quality and reducing iteration cycles through early validation and structured code reviews.',
+                isFrench
+                    ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques et prévenant les régressions sur la logique métier critique.'
+                    : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability and preventing regressions on critical business logic.',
               ],
               technologies: [
                 'Flutter',
-                'Kotlin',
                 'Riverpod',
-                'Provider',
                 'Clean Architecture',
                 'GitLab CI/CD',
                 'Fastlane',
                 'Dio',
-                'GoRouter',
+                'Hive',
                 'Firebase',
                 'OneSignal',
+                'GoRouter',
+                'Provider',
               ],
             ),
             _buildTimelineDivider(),
@@ -1242,8 +1248,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: false,
               points: [
                 isFrench
-                    ? 'Développé une application Flutter digitalisant les services municipaux (réservation de tickets, rendez-vous, chat WebSocket) avec Provider et Hive'
-                    : 'Built a Flutter app digitalizing municipal services (ticket booking, appointments, WebSocket chat) with Provider and Hive for state management',
+                    ? 'Développé une application Flutter (web + mobile) digitalisant les services municipaux (réservation de tickets, rendez-vous, chat WebSocket) avec Provider et Hive'
+                    : 'Built a Flutter app (web + mobile) digitalizing municipal services (ticket booking, appointments, WebSocket chat) with Provider and Hive for state management',
                 isFrench
                     ? 'Intégré Google Maps, Firebase pour l\'authentification et un système basé sur les rôles (citoyens, employés, admins) avec signalement d\'incidents'
                     : 'Integrated Google Maps, Firebase authentication, and role-based system (citizens, employees, admins) with incident reporting and media uploads',
