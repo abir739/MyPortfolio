@@ -1005,8 +1005,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         'icon': Icons.extension_rounded,
         'title': 'White-label & SDK',
         'desc': isFrench
-            ? '6+ packages Flutter réutilisables réduisant le temps de développement de 40%'
-            : '6+ reusable Flutter packages reducing development time by 40%',
+            ? '7+ packages Flutter réutilisables réduisant le temps de développement de 40%'
+            : '7+ reusable Flutter packages reducing development time by 40%',
         'color': const Color(0xFFF59E0B),
       },
     ];
@@ -1617,6 +1617,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             const SizedBox(height: 16),
             _buildPersonalProjectCard(
               title: isFrench
+                  ? 'BLE Proximity Tracker – Communication GATT Native'
+                  : 'BLE Proximity Tracker – Native GATT Communication',
+              description: isFrench
+                  ? 'Traceur de proximité BLE en Flutter et Kotlin natif utilisant les Platform Channels pour le scan en temps réel et la communication GATT. Suit la distance d\'un appareil via le RSSI, alerte en cas de perte de portée après une durée soutenue configurable, et se connecte en GATT pour découvrir les services Bluetooth réels d\'un appareil et tenter de le faire sonner.'
+                  : 'Flutter + native Kotlin BLE proximity tracker using Platform Channels for real-time scanning and real GATT communication. Estimates a tracked device\'s distance from RSSI, alerts once it\'s been out of range for a configurable sustained duration, and connects via GATT to discover a device\'s actual Bluetooth services and attempt to ring it.',
+              githubUrl: 'https://github.com/abir739/ble-proximity-tracker',
+              imagePath: 'assets/images/ble_tracker.png',
+              technologies: [
+                'Flutter',
+                'Kotlin',
+                'Platform Channels',
+                'BLE',
+                'GATT',
+                'Riverpod',
+                'Clean Architecture',
+              ],
+            ),
+            const SizedBox(height: 16),
+            _buildPersonalProjectCard(
+              title: isFrench
                   ? 'KotlinPosApp – Système POS Android Natif'
                   : 'KotlinPosApp – Native Android POS System',
               description: isFrench
@@ -2106,6 +2126,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     Icons.phone_android,
                     ['Flutter', 'Kotlin', 'Jetpack Compose', 'Android SDK', 'Firebase', 'iOS'],
                     const Color(0xFF0EA5E9),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildSkillCategoryCard(
+                    isFrench ? 'IoT & Connectivité' : 'IoT & Connectivity',
+                    Icons.bluetooth,
+                    ['Bluetooth LE (BLE)', 'GATT', 'Platform Channels', 'BroadcastReceiver'],
+                    const Color(0xFF0D9488),
                   ),
                 ];
                 final col2 = [
