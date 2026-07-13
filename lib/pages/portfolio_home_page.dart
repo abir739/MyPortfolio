@@ -979,7 +979,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     final specialties = [
       {
         'icon': Icons.phone_android,
-        'title': isFrench ? 'Flutter & Android Natif' : 'Flutter & Native Android',
+        'title': isFrench
+            ? 'Flutter & Android Natif'
+            : 'Flutter & Native Android',
         'desc': isFrench
             ? 'Apps cross-platform avec Flutter et apps Android natives avec Kotlin + Jetpack Compose'
             : 'Cross-platform apps with Flutter and native Android apps with Kotlin + Jetpack Compose',
@@ -1543,15 +1545,28 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             LayoutBuilder(
               builder: (context, constraints) {
                 final isCompact = constraints.maxWidth < 650;
+                final promoCard = _buildReleasedAppCard(
+                  title: 'Tunisie Promo',
+                  description: isFrench
+                      ? 'Application de promotions et offres locales'
+                      : 'Local promotions and deals app for Tunisian consumers',
+                  appStoreUrl:
+                      'https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132',
+                  playStoreUrl:
+                      'https://play.google.com/store/apps/dev?id=7728432506457419444&hl=en',
+                  websiteUrl: 'https://www.tunisiepromo.tn/',
+                  image: 'assets/images/tunisie_promo.png',
+                  technologies: ['Flutter', 'Provider', 'REST APIs'],
+                );
                 final sunshineCard = _buildReleasedAppCard(
                   title: 'Sunshine Vacances',
                   description: isFrench
                       ? 'Application de voyage et vacances avec réservation et gestion d\'itinéraires'
                       : 'Travel and vacation app with booking and itinerary management',
                   appStoreUrl:
-                      'https://apps.apple.com/fr/developer/continuousnet/id1772875128',
+                      'https://apps.apple.com/fr/app/sunshine-vacances/id6761716491',
                   playStoreUrl:
-                      'https://play.google.com/store/apps/details?id=com.zenify_client_app',
+                      'https://play.google.com/store/apps/developer?id=SunshineVacances.fr',
                   websiteUrl: 'https://www.sunshinevacances.fr/',
                   image: 'assets/images/sunshine.png',
                   technologies: [
@@ -1569,19 +1584,6 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   websiteUrl: 'https://zenifytrip.com/',
                   image: 'assets/images/zenify_trip.png',
                   technologies: ['Flutter', 'GetX', 'WebSocket', 'Dio'],
-                );
-                final promoCard = _buildReleasedAppCard(
-                  title: 'Tunisie Promo',
-                  description: isFrench
-                      ? 'Application de promotions et offres locales'
-                      : 'Local promotions and deals app for Tunisian consumers',
-                  appStoreUrl:
-                      'https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132',
-                  playStoreUrl:
-                      'https://play.google.com/store/apps/dev?id=7728432506457419444&hl=en',
-                  websiteUrl: 'https://www.tunisiepromo.tn/',
-                  image: 'assets/images/tunisie_promo.png',
-                  technologies: ['Flutter', 'Provider', 'REST APIs'],
                 );
                 return isCompact
                     ? Column(
@@ -1632,6 +1634,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 'GATT',
                 'Riverpod',
                 'Clean Architecture',
+              ],
+              bullets: [
+                isFrench
+                    ? 'Implémentation de connexions GATT réelles pour la découverte de services et l\'alerte des appareils, avec une Clean Architecture appliquée de part et d\'autre du Platform Channel (le côté Dart n\'accède jamais directement aux API BLE Android), atteignant 87 % de couverture de tests unitaires sur la couche domaine.'
+                    : 'Implemented real GATT connections for service discovery and device alerting, enforcing Clean Architecture across the platform boundary (Dart never touches Android BLE APIs directly), achieving 87% unit test coverage on the domain layer.',
               ],
             ),
             const SizedBox(height: 16),
@@ -1920,6 +1927,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     required String githubUrl,
     String? imagePath,
     List<String> technologies = const [],
+    List<String> bullets = const [],
   }) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -1958,6 +1966,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                         description: description,
                         githubUrl: githubUrl,
                         technologies: technologies,
+                        bullets: bullets,
                       ),
                     ),
                   ),
@@ -1989,6 +1998,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                           description: description,
                           githubUrl: githubUrl,
                           technologies: technologies,
+                          bullets: bullets,
                         ),
                       ),
                     ),
@@ -2004,6 +2014,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     required String description,
     required String githubUrl,
     List<String> technologies = const [],
+    List<String> bullets = const [],
   }) {
     return [
       Text(
@@ -2023,6 +2034,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           height: 1.6,
         ),
       ),
+      if (bullets.isNotEmpty) ...[
+        const SizedBox(height: 10),
+        ...bullets.map(
+          (b) => Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('• ', style: GoogleFonts.poppins(fontSize: 14, color: _primaryColor, height: 1.6)),
+                Expanded(
+                  child: Text(
+                    b,
+                    style: GoogleFonts.poppins(fontSize: 14, color: _subtextColor, height: 1.6),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
       if (technologies.isNotEmpty) ...[
         const SizedBox(height: 14),
         Wrap(
@@ -2124,14 +2155,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   _buildSkillCategoryCard(
                     isFrench ? 'Développement Mobile' : 'Mobile Dev',
                     Icons.phone_android,
-                    ['Flutter', 'Kotlin', 'Jetpack Compose', 'Android SDK', 'Firebase', 'iOS'],
+                    [
+                      'Flutter',
+                      'Kotlin',
+                      'Jetpack Compose',
+                      'Android SDK',
+                      'Firebase',
+                      'iOS',
+                    ],
                     const Color(0xFF0EA5E9),
                   ),
                   const SizedBox(height: 16),
                   _buildSkillCategoryCard(
                     isFrench ? 'IoT & Connectivité' : 'IoT & Connectivity',
                     Icons.bluetooth,
-                    ['Bluetooth LE (BLE)', 'GATT', 'Platform Channels', 'BroadcastReceiver'],
+                    [
+                      'Bluetooth LE (BLE)',
+                      'GATT',
+                      'Platform Channels',
+                      'BroadcastReceiver',
+                    ],
                     const Color(0xFF0D9488),
                   ),
                 ];
@@ -2139,7 +2182,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   _buildSkillCategoryCard(
                     isFrench ? 'Gestion d\'État' : 'State Management',
                     Icons.hub_rounded,
-                    ['Riverpod', 'Provider', 'GetX', 'Coroutines', 'Flow/StateFlow'],
+                    [
+                      'Riverpod',
+                      'Provider',
+                      'GetX',
+                      'Coroutines',
+                      'Flow/StateFlow',
+                    ],
                     const Color(0xFF10B981),
                   ),
                   const SizedBox(height: 16),
