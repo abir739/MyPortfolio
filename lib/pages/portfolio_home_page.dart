@@ -1553,10 +1553,23 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   appStoreUrl:
                       'https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132',
                   playStoreUrl:
-                      'https://play.google.com/store/apps/dev?id=7728432506457419444&hl=en',
+                      'https://play.google.com/store/apps/details?id=com.zenifytrip.tunisiepromo.app&hl=en',
                   websiteUrl: 'https://www.tunisiepromo.tn/',
                   image: 'assets/images/tunisie_promo.png',
-                  technologies: ['Flutter', 'Provider', 'REST APIs'],
+                  technologies: [
+                    'Flutter',
+                    'Riverpod',
+                    'REST APIs',
+                    'Firebase',
+                    'Matrix SDK',
+                    'Hive',
+                    'Freezed',
+                    'GoRouter',
+                    'Retrofit',
+                    'i18n'
+                    'iOS schemes'
+              
+                  ],
                 );
                 final sunshineCard = _buildReleasedAppCard(
                   title: 'Sunshine Vacances',
@@ -1574,6 +1587,14 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     'Riverpod',
                     'REST APIs',
                     'Firebase',
+                    'Matrix SDK',
+                    'Hive',
+                    'Freezed',
+                    'GoRouter',
+                    'Retrofit',
+                    'i18n'
+                    'iOS schemes'
+              
                   ],
                 );
                 final zenifyCard = _buildReleasedAppCard(
@@ -1588,21 +1609,25 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 return isCompact
                     ? Column(
                         children: [
+                          promoCard,
+                          const SizedBox(height: 16),
                           sunshineCard,
                           const SizedBox(height: 16),
                           zenifyCard,
-                          const SizedBox(height: 16),
-                          promoCard,
+                         
+                          
                         ],
                       )
                     : Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Expanded(child: promoCard),
+                          const SizedBox(width: 16),
                           Expanded(child: sunshineCard),
                           const SizedBox(width: 16),
                           Expanded(child: zenifyCard),
-                          const SizedBox(width: 16),
-                          Expanded(child: promoCard),
+                        
+                        
                         ],
                       );
               },
