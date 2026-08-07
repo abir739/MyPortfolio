@@ -298,7 +298,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ),
                     child: const CircleAvatar(
                       radius: 35,
-                      backgroundImage: AssetImage('assets/images/img.jpg'),
+                      backgroundImage: AssetImage('assets/images/img3.png'),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -468,8 +468,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         alignment: Alignment.center,
         children: [
           Container(
-            width: isMobile ? 190 : 230,
-            height: isMobile ? 190 : 230,
+            width: isMobile ? 200 : 300,
+            height: isMobile ? 200 : 300,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: RadialGradient(
@@ -478,8 +478,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
           ),
           Container(
-            width: isMobile ? 172 : 212,
-            height: isMobile ? 172 : 212,
+            width: isMobile ? 192 : 300,
+            height: isMobile ? 192 : 300,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -489,8 +489,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
           ),
           CircleAvatar(
-            radius: isMobile ? 80 : 100,
-            backgroundImage: const AssetImage('assets/images/img.jpg'),
+            radius: isMobile ? 90 : 140,
+            backgroundImage: const AssetImage('assets/images/img3.png'),
             backgroundColor: _cardColor,
           ),
           Positioned(
