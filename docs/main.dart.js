@@ -70702,13 +70702,13 @@ s=A.az([null,0],t.LO,t.S)
 return new A.DZ(A.b3(g,new A.Fg(new A.a4l(!0,!0,!0,f,s),B.aw,B.b3,!1,g,g,B.yB,g,!1,g,0,g,10,B.xB,B.b6,g,g,B.ao,B.ax,g),B.l,g,g,new A.aQ(g,g,g,g,g,new A.da(B.eB,B.eA,B.an,e,g,g),B.B),g,g,g,g,g,g,g),g)},
 kL(a,b,c){var s=this.e,r=A.dx(a,s?B.v:B.y,null,null)
 return A.aku(r,new A.aaJ(this,c),A.b5(b,A.bd().$2$color$fontSize(s?B.aT:B.aE,15),null))},
-G8(a){var s,r,q,p,o,n,m,l,k=this,j=null,i=a?190:230,h=a?190:230,g=k.e?B.v:B.y
+G8(a){var s,r,q,p,o,n,m,l,k=this,j=null,i=a?200:300,h=a?200:300,g=k.e?B.v:B.y
 i=A.b3(j,j,B.l,j,j,new A.aQ(j,j,j,j,j,new A.n6(B.Z,0.5,B.an,j,0,A.c([A.W(64,g.m()>>>16&255,g.m()>>>8&255,g.m()&255),B.R],t.W),j,j),B.aD),j,h,j,j,j,j,i)
-h=a?172:212
-g=a?172:212
+h=a?192:300
+g=a?192:300
 s=k.e?B.ah:B.a8
 h=A.b3(j,j,B.l,j,j,new A.aQ(j,j,A.dg(A.W(B.c.af(127.5),s.m()>>>16&255,s.m()>>>8&255,s.m()&255),2),j,j,j,B.aD),j,g,j,j,j,j,h)
-g=a?80:100
+g=a?90:140
 s=k.e?B.aU:B.h
 r=a?10:16
 q=a?10:16
@@ -71037,13 +71037,13 @@ r=A.dg(A.W(64,r.m()>>>16&255,r.m()>>>8&255,r.m()&255),1)
 return A.b3(q,A.b5(a,A.bd().$3$color$fontSize$fontWeight(p.e?B.ah:B.a8,11,B.G),q),B.l,q,q,new A.aQ(o,q,r,s,q,q,B.B),q,q,q,B.m_,q,q,q)},
 $S:54}
 A.aaQ.prototype={
-$2(a,b){var s,r,q=this.a,p=q.d?"Application de promotions et offres locales":"Local promotions and deals app for Tunisian consumers",o=t.s,n=q.xn("https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132",p,"assets/images/tunisie_promo.png","https://play.google.com/store/apps/dev?id=7728432506457419444&hl=en",A.c(["Flutter","Provider","REST APIs"],o),"Tunisie Promo","https://www.tunisiepromo.tn/")
+$2(a,b){var s,r,q=this.a,p=q.d?"Application de promotions et offres locales":"Local promotions and deals app for Tunisian consumers",o=t.s,n=q.xn("https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132",p,"assets/images/tunisie_promo.png","https://play.google.com/store/apps/details?id=com.zenifytrip.tunisiepromo.app&hl=en",A.c(["Flutter","Riverpod","REST APIs","Firebase","Matrix SDK","Hive","Freezed","GoRouter","Retrofit","i18niOS schemes"],o),"Tunisie Promo","https://www.tunisiepromo.tn/")
 p=q.d?"Application de voyage et vacances avec r\xe9servation et gestion d'itin\xe9raires":"Travel and vacation app with booking and itinerary management"
-s=q.xn("https://apps.apple.com/fr/app/sunshine-vacances/id6761716491",p,"assets/images/sunshine.png","https://play.google.com/store/apps/developer?id=SunshineVacances.fr",A.c(["Flutter","Riverpod","REST APIs","Firebase"],o),"Sunshine Vacances","https://www.sunshinevacances.fr/")
+s=q.xn("https://apps.apple.com/fr/app/sunshine-vacances/id6761716491",p,"assets/images/sunshine.png","https://play.google.com/store/apps/developer?id=SunshineVacances.fr",A.c(["Flutter","Riverpod","REST APIs","Firebase","Matrix SDK","Hive","Freezed","GoRouter","Retrofit","i18niOS schemes"],o),"Sunshine Vacances","https://www.sunshinevacances.fr/")
 p=q.d?"Plateforme de voyage avec d\xe9couverte d'activit\xe9s et paiements int\xe9gr\xe9s":"Full travel platform with activity discovery and in-app payments"
 r=q.WJ(p,"assets/images/zenify_trip.png",A.c(["Flutter","GetX","WebSocket","Dio"],o),"ZenifyTrip","https://zenifytrip.com/")
 q=t.p
-return b.b<650?A.bX(A.c([s,B.ae,r,B.ae,n],q),B.D,B.q,B.u):A.c6(A.c([A.e_(s,1),B.cs,A.e_(r,1),B.cs,A.e_(n,1)],q),B.L,B.q,B.u,0)},
+return b.b<650?A.bX(A.c([n,B.ae,s,B.ae,r],q),B.D,B.q,B.u):A.c6(A.c([A.e_(n,1),B.cs,A.e_(s,1),B.cs,A.e_(r,1)],q),B.L,B.q,B.u,0)},
 $S:86}
 A.aaR.prototype={
 $1(a){var s,r=null,q=this.a,p=q.e?B.v:B.y
@@ -73687,7 +73687,7 @@ B.eD=new A.fQ(3,"hidden")
 B.hC=new A.fQ(4,"paused")
 B.hD=new A.t1(0,"polite")
 B.hE=new A.t1(1,"assertive")
-B.kA=new A.oi("assets/images/img.jpg",null,null)
+B.kA=new A.oi("assets/images/img3.png",null,null)
 B.aP=new A.oj(0,"up")
 B.c5=new A.oj(1,"right")
 B.aQ=new A.oj(2,"down")
