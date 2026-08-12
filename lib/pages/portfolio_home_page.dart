@@ -27,6 +27,14 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   late AnimationController _fabAnimationController;
   bool _showFab = false;
 
+  // Contact form
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _subjectController = TextEditingController();
+  final _messageController = TextEditingController();
+  bool _isSending = false;
+  bool _sentSuccess = false;
+
   // Color system — Purple/Violet + Sky Blue accent
   Color get _primaryColor =>
       isDarkMode ? const Color(0xFFA78BFA) : const Color(0xFF7C3AED);
@@ -66,7 +74,42 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
   void dispose() {
     _scrollController.dispose();
     _fabAnimationController.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _subjectController.dispose();
+    _messageController.dispose();
     super.dispose();
+  }
+
+  Future<void> _sendMessage() async {
+    final name = _nameController.text.trim();
+    final email = _emailController.text.trim();
+    final subject = _subjectController.text.trim();
+    final message = _messageController.text.trim();
+
+    if (name.isEmpty || email.isEmpty || message.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(isFrench ? 'Veuillez remplir tous les champs.' : 'Please fill in all fields.'),
+        backgroundColor: Colors.red,
+      ));
+      return;
+    }
+
+    setState(() => _isSending = true);
+
+    final body = 'From: $name <$email>\n\n$message';
+    final mailtoUrl =
+        'mailto:abircherif212@gmail.com?subject=${Uri.encodeComponent(subject.isEmpty ? 'Portfolio Contact' : subject)}&body=${Uri.encodeComponent(body)}';
+
+    await _launchUrl(mailtoUrl);
+
+    _nameController.clear();
+    _emailController.clear();
+    _subjectController.clear();
+    _messageController.clear();
+    setState(() { _isSending = false; _sentSuccess = true; });
+    await Future.delayed(const Duration(seconds: 3));
+    if (mounted) setState(() => _sentSuccess = false);
   }
 
   Future<void> _launchUrl(String url) async {
@@ -217,14 +260,16 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       title: Row(
         children: [
           Container(
-            width: 8,
-            height: 8,
             decoration: BoxDecoration(
-              color: _accentColor,
               shape: BoxShape.circle,
+              border: Border.all(color: _accentColor, width: 2),
+            ),
+            child: const CircleAvatar(
+              radius: 16,
+              backgroundImage: AssetImage('assets/images/img3.png'),
             ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 10),
           Text(
             'Abir Cherif',
             style: GoogleFonts.poppins(
@@ -468,8 +513,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         alignment: Alignment.center,
         children: [
           Container(
-            width: isMobile ? 200 : 300,
-            height: isMobile ? 200 : 300,
+            width: isMobile ? 260 : 380,
+            height: isMobile ? 260 : 380,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: RadialGradient(
@@ -478,8 +523,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
           ),
           Container(
-            width: isMobile ? 192 : 300,
-            height: isMobile ? 192 : 300,
+            width: isMobile ? 250 : 370,
+            height: isMobile ? 250 : 370,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -489,7 +534,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             ),
           ),
           CircleAvatar(
-            radius: isMobile ? 90 : 140,
+            radius: isMobile ? 118 : 178,
             backgroundImage: const AssetImage('assets/images/img3.png'),
             backgroundColor: _cardColor,
           ),
@@ -582,15 +627,31 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           ),
         ),
       ),
-      const SizedBox(height: 14),
+      const SizedBox(height: 12),
+      FadeInUp(
+        duration: const Duration(milliseconds: 850),
+        child: Text(
+          isFrench
+              ? 'Je construis des apps mobiles qui passent en production.'
+              : 'I build mobile apps that ship to production.',
+          style: GoogleFonts.poppins(
+            fontSize: isMobile ? 18 : 24,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+            height: 1.3,
+          ),
+          textAlign: isMobile ? TextAlign.center : TextAlign.left,
+        ),
+      ),
+      const SizedBox(height: 10),
       FadeInUp(
         duration: const Duration(milliseconds: 900),
         child: Text(
           isFrench
-              ? 'Spécialisée en Flutter, Android Natif (Kotlin + Jetpack Compose),\nCI/CD et architecture mobile scalable'
-              : 'Specialized in Flutter & Native Android (Kotlin + Jetpack Compose),\nCI/CD automation & scalable mobile architecture',
+              ? 'Flutter · Android Natif (Kotlin + Jetpack Compose) · Plateformes White-Label\nMulti-Flavors · Clean Architecture · MVVM · CI/CD Fastlane'
+              : 'Flutter · Native Android (Kotlin + Jetpack Compose) · White-Label Platforms\nMulti-Flavor Builds · Clean Architecture · MVVM · CI/CD Fastlane',
           style: GoogleFonts.poppins(
-            fontSize: isMobile ? 14 : 16,
+            fontSize: isMobile ? 13 : 15,
             color: Colors.white.withOpacity(0.75),
             height: 1.7,
           ),
@@ -907,8 +968,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             const SizedBox(height: 20),
             Text(
               isFrench
-                  ? 'Ingénieure Mobile avec 3+ ans d\'expérience en production, spécialisée dans Flutter et Android natif (Kotlin + Jetpack Compose). Experte en Clean Architecture, gestion d\'état (Riverpod, Provider) et conception de SDK modulaires. Expérience confirmée dans les plateformes multi-flavors en marque blanche, l\'automatisation CI/CD et la gestion complète du cycle de publication sur l\'App Store et Google Play, au sein d\'environnements Agile/Scrum.'
-                  : 'Mobile Engineer with 3+ years of production experience building scalable applications with Flutter and Native Android (Kotlin + Jetpack Compose). Skilled in Clean Architecture, state management (Riverpod, Provider), and modular SDK design. Proven track record in multi-flavor white-label platforms, CI/CD automation, and full release lifecycle ownership across App Store and Google Play, within Agile/Scrum environments.',
+                  ? 'Ingénieure Mobile avec 3+ ans d\'expérience en production, spécialisée dans Flutter et Android natif (Kotlin + Jetpack Compose). Experte en Clean Architecture, gestion d\'état (Riverpod, Provider, GetX) et conception de SDK modulaires. Expérience confirmée dans les plateformes multi-flavors en marque blanche, l\'automatisation CI/CD et la gestion complète du cycle de publication sur l\'App Store et Google Play, au sein d\'environnements Agile/Scrum.'
+                  : 'Mobile Engineer with 3+ years of production experience building scalable applications with Flutter and Native Android (Kotlin + Jetpack Compose). Skilled in Clean Architecture, state management (Riverpod, Provider, GetX), and modular SDK design. Proven track record in multi-flavor white-label platforms, CI/CD automation, and full release lifecycle ownership across App Store and Google Play, within Agile/Scrum environments.',
               style: GoogleFonts.poppins(
                 fontSize: 15,
                 color: _subtextColor,
@@ -2509,22 +2570,15 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isDarkMode
-              ? [
-                  const Color(0xFF0D0B1A),
-                  const Color(0xFF1A0F2E),
-                  const Color(0xFF0F172A),
-                ]
-              : [
-                  const Color(0xFF5B21B6),
-                  const Color(0xFF4F46E5),
-                  const Color(0xFF0284C7),
-                ],
+              ? [const Color(0xFF0D0B1A), const Color(0xFF1A0F2E), const Color(0xFF0F172A)]
+              : [const Color(0xFF5B21B6), const Color(0xFF4F46E5), const Color(0xFF0284C7)],
         ),
       ),
       child: FadeInUp(
         duration: const Duration(milliseconds: 800),
         child: Column(
           children: [
+            // Header
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
               decoration: BoxDecoration(
@@ -2534,21 +2588,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               ),
               child: Text(
                 isFrench ? 'Travaillons Ensemble' : 'Let\'s Work Together',
-                style: GoogleFonts.poppins(
-                  fontSize: 13,
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: GoogleFonts.poppins(fontSize: 13, color: Colors.white70, fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(height: 16),
             Text(
               isFrench ? 'Contactez-moi' : 'Get in Touch',
-              style: GoogleFonts.playfairDisplay(
-                fontSize: isMobile ? 32 : 42,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.playfairDisplay(fontSize: isMobile ? 32 : 42, color: Colors.white, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
@@ -2556,34 +2602,36 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isFrench
                   ? 'Disponible pour des opportunités Mobile Engineering (Flutter & Android)'
                   : 'Available for Mobile Engineering opportunities (Flutter & Android)',
-              style: GoogleFonts.poppins(fontSize: 16, color: Colors.white70),
+              style: GoogleFonts.poppins(fontSize: 15, color: Colors.white70),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 40),
-            Wrap(
-              spacing: 16,
-              runSpacing: 16,
-              alignment: WrapAlignment.center,
-              children: [
-                _buildContactCard(
-                  Icons.email,
-                  'Email',
-                  'abircherif212@gmail.com',
-                  () => _launchUrl('mailto:abircherif212@gmail.com'),
-                ),
-                _buildContactCard(
-                  Icons.code,
-                  'GitHub',
-                  'github.com/abir739',
-                  () => _launchUrl(githubUrl),
-                ),
-                _buildContactCard(
-                  Icons.work,
-                  'LinkedIn',
-                  'Abir Cherif',
-                  () => _launchUrl(linkedinUrl),
-                ),
-              ],
+            // Main card
+            Container(
+              constraints: const BoxConstraints(maxWidth: 1000),
+              decoration: BoxDecoration(
+                color: isDarkMode ? const Color(0xFF1E1A3A) : Colors.white,
+                borderRadius: BorderRadius.circular(24),
+                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 40, spreadRadius: 5)],
+              ),
+              child: isMobile
+                  ? Column(
+                      children: [
+                        _buildContactInfo(isMobile),
+                        const Divider(height: 1),
+                        _buildContactForm(isMobile),
+                      ],
+                    )
+                  : IntrinsicHeight(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Expanded(flex: 4, child: _buildContactInfo(isMobile)),
+                          VerticalDivider(width: 1, color: _borderColor),
+                          Expanded(flex: 6, child: _buildContactForm(isMobile)),
+                        ],
+                      ),
+                    ),
             ),
           ],
         ),
@@ -2591,51 +2639,179 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
     );
   }
 
-  Widget _buildContactCard(
-    IconData icon,
-    String platform,
-    String value,
-    VoidCallback onTap,
-  ) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.white.withOpacity(0.2)),
+  Widget _buildContactInfo(bool isMobile) {
+    return Container(
+      padding: const EdgeInsets.all(32),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [_primaryColor.withOpacity(0.15), _accentColor.withOpacity(0.08)],
         ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, color: Colors.white, size: 22),
-            const SizedBox(width: 12),
-            Column(
+        borderRadius: isMobile
+            ? const BorderRadius.vertical(top: Radius.circular(24))
+            : const BorderRadius.horizontal(left: Radius.circular(24)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            isFrench ? 'Informations de contact' : 'Contact Information',
+            style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold, color: _textColor),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            isFrench
+                ? 'Remplissez le formulaire et je vous répondrai dans les 24h.'
+                : 'Fill out the form and I\'ll get back to you within 24h.',
+            style: GoogleFonts.poppins(fontSize: 13, color: _subtextColor, height: 1.6),
+          ),
+          const SizedBox(height: 28),
+          _contactInfoRow(Icons.email_rounded, 'Email', 'abircherif212@gmail.com', 'mailto:abircherif212@gmail.com'),
+          const SizedBox(height: 16),
+          _contactInfoRow(Icons.code, 'GitHub', 'github.com/abir739', githubUrl),
+          const SizedBox(height: 16),
+          _contactInfoRow(Icons.work_rounded, 'LinkedIn', 'Abir Cherif', linkedinUrl),
+          const SizedBox(height: 16),
+          _contactInfoRow(Icons.location_on_rounded, isFrench ? 'Localisation' : 'Location', 'Tunisia · Open to Relocation', ''),
+          const SizedBox(height: 32),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: _primaryColor.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: _primaryColor.withOpacity(0.2)),
+            ),
+            child: Text(
+              isFrench
+                  ? 'Ouverte aux opportunités full-time et freelance en développement mobile Flutter & Android.'
+                  : 'Open to full-time and freelance opportunities in Flutter & Android mobile development.',
+              style: GoogleFonts.poppins(fontSize: 12, color: _subtextColor, height: 1.6),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _contactInfoRow(IconData icon, String label, String value, String url) {
+    return InkWell(
+      onTap: url.isEmpty ? null : () => _launchUrl(url),
+      borderRadius: BorderRadius.circular(8),
+      child: Row(
+        children: [
+          Container(
+            width: 38,
+            height: 38,
+            decoration: BoxDecoration(
+              color: _primaryColor.withOpacity(0.12),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Icon(icon, color: _primaryColor, size: 18),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  platform,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white70,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  value,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text(label, style: GoogleFonts.poppins(fontSize: 11, color: _subtextColor, fontWeight: FontWeight.w500)),
+                Text(value, style: GoogleFonts.poppins(fontSize: 13, color: _textColor, fontWeight: FontWeight.w600)),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget _buildContactForm(bool isMobile) {
+    final inputDecoration = InputDecoration(
+      filled: true,
+      fillColor: isDarkMode ? const Color(0xFF2D2750) : const Color(0xFFF9F7FF),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: _borderColor)),
+      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: _borderColor)),
+      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: _primaryColor, width: 2)),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      hintStyle: GoogleFonts.poppins(fontSize: 13, color: _subtextColor),
+      labelStyle: GoogleFonts.poppins(fontSize: 13, color: _subtextColor),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            isFrench ? 'Envoyer un message' : 'Send a Message',
+            style: GoogleFonts.poppins(fontSize: 18, fontWeight: FontWeight.bold, color: _textColor),
+          ),
+          const SizedBox(height: 24),
+          if (isMobile) ...[
+            _formField(isFrench ? 'Votre nom' : 'Your name', _nameController, inputDecoration),
+            const SizedBox(height: 16),
+            _formField(isFrench ? 'Votre email' : 'Your email', _emailController, inputDecoration, keyboardType: TextInputType.emailAddress),
+          ] else
+            Row(
+              children: [
+                Expanded(child: _formField(isFrench ? 'Votre nom' : 'Your name', _nameController, inputDecoration)),
+                const SizedBox(width: 16),
+                Expanded(child: _formField(isFrench ? 'Votre email' : 'Your email', _emailController, inputDecoration, keyboardType: TextInputType.emailAddress)),
+              ],
+            ),
+          const SizedBox(height: 16),
+          _formField(isFrench ? 'Sujet' : 'Subject', _subjectController, inputDecoration),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _messageController,
+            maxLines: 5,
+            style: GoogleFonts.poppins(fontSize: 13, color: _textColor),
+            decoration: inputDecoration.copyWith(hintText: isFrench ? 'Votre message…' : 'Your message…', alignLabelWithHint: true),
+          ),
+          const SizedBox(height: 24),
+          if (_sentSuccess)
+            Container(
+              padding: const EdgeInsets.all(12),
+              margin: const EdgeInsets.only(bottom: 16),
+              decoration: BoxDecoration(color: Colors.green.withOpacity(0.1), borderRadius: BorderRadius.circular(10), border: Border.all(color: Colors.green.withOpacity(0.3))),
+              child: Row(
+                children: [
+                  const Icon(Icons.check_circle_rounded, color: Colors.green, size: 18),
+                  const SizedBox(width: 8),
+                  Text(isFrench ? 'Message prêt à envoyer !' : 'Message ready to send!', style: GoogleFonts.poppins(color: Colors.green, fontSize: 13, fontWeight: FontWeight.w500)),
+                ],
+              ),
+            ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: _isSending ? null : _sendMessage,
+              icon: _isSending
+                  ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                  : const Icon(Icons.send_rounded, size: 18),
+              label: Text(
+                _isSending ? (isFrench ? 'Envoi…' : 'Sending…') : (isFrench ? 'Envoyer le message' : 'Send Message'),
+                style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: _primaryColor,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                elevation: 0,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _formField(String hint, TextEditingController controller, InputDecoration base, {TextInputType? keyboardType}) {
+    return TextField(
+      controller: controller,
+      keyboardType: keyboardType,
+      style: GoogleFonts.poppins(fontSize: 13, color: _textColor),
+      decoration: base.copyWith(hintText: hint),
     );
   }
 
