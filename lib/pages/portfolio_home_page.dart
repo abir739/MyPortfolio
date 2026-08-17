@@ -1231,6 +1231,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 isFrench
                     ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques et prévenant les régressions sur la logique métier critique.'
                     : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability and preventing regressions on critical business logic.',
+                isFrench
+                    ? 'Conception d\'une intégration WebView hybride (WKWebView/Android WebView) avec un pont bidirectionnel JavaScript-Flutter et partage de cookies/session natif, permettant l\'accès à du contenu web authentifié sans nécessiter de reconnexion.'
+                    : 'Engineered hybrid WebView integration (WKWebView/Android WebView) with a bidirectional JavaScript-Flutter bridge and native cookie/session sharing, enabling seamless authenticated web content within the app without requiring users to re-login.',
               ],
               technologies: [
                 'Flutter',
@@ -2262,6 +2265,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       'BroadcastReceiver',
                     ],
                     const Color(0xFF0D9488),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildSkillCategoryCard(
+                    isFrench ? 'Intégration Hybride' : 'Hybrid Integration',
+                    Icons.web_rounded,
+                    [
+                      'WebView (WKWebView / Android WebView)',
+                      'JavaScript-Flutter Bridge',
+                      'Cookie & Session Sharing',
+                    ],
+                    const Color(0xFF6366F1),
                   ),
                 ];
                 final col2 = [
