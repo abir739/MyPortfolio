@@ -968,8 +968,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             const SizedBox(height: 20),
             Text(
               isFrench
-                  ? 'Ingénieure Mobile avec 3+ ans d\'expérience en production, spécialisée dans Flutter et Android natif (Kotlin + Jetpack Compose). Experte en Clean Architecture, gestion d\'état (Riverpod, Provider, GetX) et conception de SDK modulaires. Expérience confirmée dans les plateformes multi-flavors en marque blanche, l\'automatisation CI/CD et la gestion complète du cycle de publication sur l\'App Store et Google Play, au sein d\'environnements Agile/Scrum.'
-                  : 'Mobile Engineer with 3+ years of production experience building scalable applications with Flutter and Native Android (Kotlin + Jetpack Compose). Skilled in Clean Architecture, state management (Riverpod, Provider, GetX), and modular SDK design. Proven track record in multi-flavor white-label platforms, CI/CD automation, and full release lifecycle ownership across App Store and Google Play, within Agile/Scrum environments.',
+                  ? 'Ingénieure Mobile avec 3+ ans de livraison d\'apps Flutter en production, architecturant 7+ packages et un monorepo en marque blanche alimentant 4 marques de voyage et 1 950+ utilisateurs actifs, réduisant le temps de livraison de 57 % grâce à la Clean Architecture et l\'automatisation CI/CD complète. Expérimentée dans la gestion end-to-end des apps, de l\'architecture à la publication App Store/Google Play, en environnements Agile multilingues (EN/FR/AR).'
+                  : 'Mobile Engineer with 3+ years shipping production Flutter apps, architecting 7+ packages and a white-label monorepo powering 4 travel brands and 1,950+ active users, cutting delivery time by 57% through Clean Architecture and full CI/CD automation. Experienced owning apps end-to-end, from architecture to App Store/Google Play release, in multilingual (EN/FR/AR) Agile environments.',
               style: GoogleFonts.poppins(
                 fontSize: 15,
                 color: _subtextColor,
@@ -1208,11 +1208,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: true,
               points: [
                 isFrench
-                    ? 'Conception d\'un monorepo Flutter de 7 packages et d\'une plateforme en marque blanche pour 4 marques, réduisant le temps de livraison par marque de 57 % grâce à l\'isolation modulaire des fonctionnalités.'
-                    : 'Architected a 7-package Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation.',
-                isFrench
-                    ? 'Conception et mise en œuvre d\'une architecture Clean orientée fonctionnalités, suivant les principes SOLID et l\'injection de dépendances, permettant la gestion par feature-flag et l\'accès basé sur les rôles pour des fonctionnalités spécifiques à chaque marque.'
-                    : 'Designed and implemented feature-driven Clean Architecture following SOLID principles and DI, enabling feature-flag and role-based access systems for brand-specific functionality.',
+                    ? 'Architecture d\'un monorepo Flutter de 7+ packages et d\'une plateforme en marque blanche pour 4 marques, réduisant le temps de livraison par marque de 57 % grâce à l\'isolation modulaire des fonctionnalités et à une Clean Architecture orientée features (SOLID, DI), avec gestion par feature-flag et accès basé sur les rôles.'
+                    : 'Architected 7+ packages Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI), with feature-flag and role-based access.',
                 isFrench
                     ? 'Mise en place d\'un pipeline GitLab CI/CD + Fastlane tridimensionnel (environnement × marque × rôle utilisateur), automatisant entièrement les workflows de build, signature et déploiement, éliminant ainsi les erreurs de publication manuelles.'
                     : 'Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment x brand x user role), fully automating build, signing, and deployment workflows and eliminating manual release errors.',
@@ -1223,11 +1220,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     ? 'Intégration de Firebase (Authentication, FCM, App Distribution) et OneSignal, supportant des applications multilingues (EN/FR/AR), des interfaces RTL et l\'engagement utilisateur en temps réel.'
                     : 'Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, supporting multilingual applications (EN/FR/AR), RTL layouts, and real-time user engagement.',
                 isFrench
-                    ? 'Responsabilité complète du cycle de vie de 3 apps en production pour 4 marques de voyage, incluant la gestion des publications sur l\'App Store et Google Play, la conformité et la livraison continue.'
-                    : 'Owned the full lifecycle of 3 production apps (architecture → deployment) across 4 travel brands, managing App Store and Google Play releases, compliance, and continuous delivery.',
-                isFrench
-                    ? 'Leadership sur les décisions techniques mobiles et collaboration inter-équipes (backend, QA), améliorant la qualité d\'intégration des API et réduisant les cycles d\'itération grâce à une validation précoce et des revues de code structurées.'
-                    : 'Led mobile technical decisions and cross-team collaboration (backend, QA), improving API integration quality and reducing iteration cycles through early validation and structured code reviews.',
+                    ? 'Responsabilité complète du cycle de vie de 3 apps en production pour 4 marques de voyage (TunisiePromo : 1 500+ utilisateurs, Sunshine Vacances : 450+ utilisateurs), de l\'architecture au déploiement App Store/Google Play, tout en pilotant les décisions techniques mobiles et la collaboration backend/QA pour améliorer la qualité des intégrations API et fluidifier la livraison.'
+                    : 'Owned the full lifecycle of 3 production apps across 4 travel brands (TunisiePromo: 1,500+ Users, Sunshine Vacances: 450+ Users), from architecture to App Store/Google Play deployment, while leading mobile technical decisions and backend/QA collaboration to improve API integration quality and streamline delivery through early validation and structured code reviews.',
                 isFrench
                     ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques et prévenant les régressions sur la logique métier critique.'
                     : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability and preventing regressions on critical business logic.',
@@ -2237,7 +2231,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   _buildSkillCategoryCard(
                     isFrench ? 'Langages' : 'Languages',
                     Icons.code,
-                    ['Dart', 'JavaScript', 'Kotlin', 'Swift'],
+                    ['Dart', 'Kotlin', 'Swift (Basic)'],
                     const Color(0xFF7C3AED),
                   ),
                   const SizedBox(height: 16),
@@ -2299,6 +2293,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     'Retrofit',
                     'WebSockets',
                   ], const Color(0xFFF59E0B)),
+                  const SizedBox(height: 16),
+                  _buildSkillCategoryCard(
+                    isFrench ? 'Base de Données & Stockage' : 'Database & Local Storage',
+                    Icons.storage_rounded,
+                    ['Hive', 'SQLite', 'Room', 'SharedPreferences'],
+                    const Color(0xFF0D9488),
+                  ),
                 ];
                 final col3 = [
                   _buildSkillCategoryCard(
@@ -2306,6 +2307,19 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     Icons.rocket_launch_rounded,
                     ['GitLab CI/CD', 'GitHub Actions', 'Fastlane', 'Xcode'],
                     const Color(0xFFEC4899),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildSkillCategoryCard(
+                    isFrench ? 'Tests & Publication' : 'Testing & Release',
+                    Icons.verified_rounded,
+                    [
+                      'Unit Testing',
+                      'Widget Testing',
+                      'Manual QA',
+                      'Code Review',
+                      'App Store & Play Store',
+                    ],
+                    const Color(0xFF10B981),
                   ),
                   const SizedBox(height: 16),
                   _buildSkillCategoryCard(
