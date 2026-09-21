@@ -23,6 +23,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
       'https://abir739.github.io/MyPortfolio/assets/assets/pdf/Abir-Cherif-Mobile-Engineer.pdf';
   final String cvFrenchUrl =
       'https://abir739.github.io/MyPortfolio/assets/assets/pdf/Abir_Cherif_Développeuse_Mobile.pdf';
+  final String portfolioUrl =
+      'https://abir739.github.io/MyPortfolio/portfolio.html';
   final ScrollController _scrollController = ScrollController();
   late AnimationController _fabAnimationController;
   bool _showFab = false;
@@ -194,7 +196,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               child: Column(
                 children: [
                   _buildHeroSection(isMobile),
-                  // _buildStatsSection(isMobile),
+                  _buildStatsSection(isMobile),
                   _buildAboutSection(),
                   _buildWhatIDoSection(isMobile),
                   _buildExperienceSection(),
@@ -301,6 +303,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
           onPressed: _downloadCV,
           tooltip: isFrench ? 'Télécharger CV' : 'Download CV',
+        ),
+        IconButton(
+          icon: const Icon(Icons.folder_special_rounded, color: Colors.white),
+          onPressed: () => _launchUrl(portfolioUrl),
+          tooltip: isFrench ? 'Portfolio PDF' : 'Portfolio PDF',
         ),
         const SizedBox(width: 8),
       ],
@@ -695,13 +702,13 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
           alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
           children: [
             _heroPrimaryBtn(
-              Icons.visibility,
-              isFrench ? 'Voir CV' : 'View CV',
-              () => _launchUrl(isFrench ? cvFrenchUrl : cvEnglishUrl),
+              Icons.picture_as_pdf_rounded,
+              isFrench ? 'Portfolio PDF' : 'Portfolio PDF',
+              () => _launchUrl(portfolioUrl),
             ),
             _heroOutlineBtn(
               Icons.download,
-              isFrench ? 'Télécharger' : 'Download CV',
+              isFrench ? 'Télécharger CV' : 'Download CV',
               _downloadCV,
             ),
             _heroOutlineBtn(
@@ -806,18 +813,18 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         'icon': Icons.phone_android,
       },
       {
-        'value': '6+',
+        'value': '7+',
         'label': isFrench ? 'Packages Flutter' : 'Flutter Packages',
         'icon': Icons.extension_rounded,
       },
       {
-        'value': '80%',
-        'label': isFrench ? 'Couverture Tests' : 'Test Coverage',
-        'icon': Icons.verified_rounded,
+        'value': '1,950+',
+        'label': isFrench ? 'Utilisateurs Actifs' : 'Active Users',
+        'icon': Icons.people_rounded,
       },
       {
-        'value': '40%',
-        'label': isFrench ? 'Temps Dev Réduit' : 'Dev Time Saved',
+        'value': '57%',
+        'label': isFrench ? 'Livraison Accélérée' : 'Faster Delivery',
         'icon': Icons.speed_rounded,
       },
     ];

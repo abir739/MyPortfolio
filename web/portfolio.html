@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abir Cherif — Mobile Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7C3AED;
+      --primary-light: #A78BFA;
+      --accent: #0EA5E9;
+      --dark: #1E1B4B;
+      --text: #1E1B4B;
+      --subtext: #6B7280;
+      --border: #E5E7EB;
+      --card: #F9FAFB;
+      --bg: #FFFFFF;
+      --chip-bg: #F3F0FF;
+      --chip-text: #5B21B6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F5F3FF;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Print button ── */
+    .print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(124,58,237,0.3);
+    }
+    .print-bar span {
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+    }
+    .print-btn {
+      background: white;
+      color: var(--primary);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .print-btn:hover { background: #F3F0FF; }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 900px;
+      margin: 24px auto;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+    }
+
+    /* ── Hero header ── */
+    .hero {
+      background: linear-gradient(135deg, #5B21B6 0%, #4F46E5 50%, #0284C7 100%);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .hero-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.5);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .hero-info { flex: 1; }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: white;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .hero-title {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hero-contact {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .hero-contact svg { opacity: 0.8; }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background: #1E1B4B;
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-around;
+      gap: 16px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: #A78BFA;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    /* ── Body layout ── */
+    .body-layout {
+      display: flex;
+      gap: 0;
+    }
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--card);
+      padding: 32px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .main-content {
+      flex: 1;
+      padding: 32px 32px;
+      min-width: 0;
+    }
+
+    /* ── Section headers ── */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section { margin-bottom: 28px; }
+
+    /* ── Summary ── */
+    .summary-text {
+      font-size: 13px;
+      color: var(--subtext);
+      line-height: 1.7;
+    }
+
+    /* ── Chips ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .chip {
+      background: var(--chip-bg);
+      color: var(--chip-text);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid #DDD6FE;
+    }
+    .chip.accent {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border-color: #BFDBFE;
+    }
+    .chip.green {
+      background: #F0FDF4;
+      color: #15803D;
+      border-color: #BBF7D0;
+    }
+
+    /* ── Education ── */
+    .edu-item { margin-bottom: 14px; }
+    .edu-degree {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .edu-school {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .edu-year {
+      font-size: 11px;
+      color: var(--subtext);
+      margin-top: 2px;
+    }
+
+    /* ── App cards ── */
+    .app-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      display: flex;
+      background: white;
+    }
+    .app-card-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .app-card-body {
+      padding: 14px 16px;
+      flex: 1;
+      min-width: 0;
+    }
+    .app-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .app-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .live-badge {
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      border: 1px solid #BBF7D0;
+    }
+    .app-desc {
+      font-size: 12px;
+      color: var(--subtext);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .store-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .store-link {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    .store-link.play { background: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+    .store-link.ios { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+    .store-link.web { background: var(--chip-bg); color: var(--chip-text); border: 1px solid #DDD6FE; }
+
+    /* ── Project cards ── */
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: white;
+    }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .project-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .github-link {
+      font-size: 10px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+    .project-desc {
+      font-size: 12px;
+      color: var(--subtext);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .project-bullet {
+      font-size: 11px;
+      color: var(--subtext);
+      line-height: 1.5;
+      margin-bottom: 4px;
+      padding-left: 12px;
+      position: relative;
+    }
+    .project-bullet::before {
+      content: '•';
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── Experience ── */
+    .exp-item { margin-bottom: 20px; }
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .exp-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-duration {
+      font-size: 11px;
+      color: var(--subtext);
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+    .exp-company {
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .exp-points { list-style: none; }
+    .exp-point {
+      font-size: 12px;
+      color: var(--subtext);
+      line-height: 1.5;
+      margin-bottom: 5px;
+      padding-left: 14px;
+      position: relative;
+    }
+    .exp-point::before {
+      content: '▸';
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 10px;
+      top: 2px;
+    }
+
+    /* ── Skills section ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .skill-item {
+      font-size: 11px;
+      color: var(--subtext);
+      padding: 2px 0;
+    }
+
+    /* ── Full width section ── */
+    .full-section {
+      padding: 28px 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      @page { margin: 12mm 14mm; size: A4; }
+      body { background: white; }
+      .print-bar { display: none !important; }
+      .page {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .stats-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .live-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .store-link { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { text-decoration: none; color: inherit; }
+      .app-card, .project-card { break-inside: avoid; }
+      .exp-item { break-inside: avoid; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { flex-direction: column; padding: 28px 24px; gap: 20px; }
+      .stats-bar { flex-wrap: wrap; padding: 16px 24px; }
+      .body-layout { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .app-card { flex-direction: column; }
+      .app-card-img { width: 100%; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print bar -->
+  <div class="print-bar">
+    <span>Abir Cherif — Mobile Developer Portfolio · <a href="https://abir739.github.io/MyPortfolio/" style="color:rgba(255,255,255,0.85);">View Live Portfolio →</a></span>
+    <button class="print-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Save as PDF
+    </button>
+  </div>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="assets/images/img3.png" alt="Abir Cherif" class="hero-photo">
+      <div class="hero-info">
+        <div class="hero-name">Abir Cherif</div>
+        <div class="hero-title">Mobile Software Engineer · Flutter &amp; Android</div>
+        <div class="hero-contacts">
+          <a href="mailto:abircherif212@gmail.com" class="hero-contact">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            abircherif212@gmail.com
+          </a>
+          <a href="https://github.com/abir739" class="hero-contact" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/abir739
+          </a>
+          <a href="https://www.linkedin.com/in/abir-cherif-931770202/" class="hero-contact" target="_blank">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn · Abir Cherif
+          </a>
+          <span class="hero-contact">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Tunisia · Open to Relocation
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Production Apps</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">7+</div>
+        <div class="stat-label">Flutter Packages</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">1,950+</div>
+        <div class="stat-label">Active Users</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">57%</div>
+        <div class="stat-label">Faster Delivery</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+
+    <!-- Body: sidebar + main -->
+    <div class="body-layout">
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+
+        <div class="section">
+          <div class="section-title">Summary</div>
+          <p class="summary-text">
+            Mobile Engineer with 3+ years shipping production Flutter apps, architecting 7+ packages and a white-label monorepo powering 4 travel brands and 1,950+ active users, cutting delivery time by 57% through Clean Architecture and full CI/CD automation.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Core Stack</div>
+          <div class="chips">
+            <span class="chip">Flutter</span>
+            <span class="chip">Dart</span>
+            <span class="chip">Kotlin</span>
+            <span class="chip accent">Riverpod</span>
+            <span class="chip accent">Clean Architecture</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">MVVM</span>
+            <span class="chip green">CI/CD · Fastlane</span>
+            <span class="chip">Jetpack Compose</span>
+            <span class="chip">Swift (Basic)</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Specialties</div>
+          <div class="chips">
+            <span class="chip">White-Label Platforms</span>
+            <span class="chip">Multi-Flavor Builds</span>
+            <span class="chip">BLE / GATT</span>
+            <span class="chip">WebView Integration</span>
+            <span class="chip">Platform Channels</span>
+            <span class="chip">Offline-first</span>
+            <span class="chip">ML Kit / OCR</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Languages</div>
+          <div class="chips">
+            <span class="chip green">French (Native)</span>
+            <span class="chip green">English (Professional)</span>
+            <span class="chip">Arabic (Native)</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Education</div>
+
+          <div class="edu-item">
+            <div class="edu-degree">Engineering Degree in Computer Science (EQF Level 7)</div>
+            <div class="edu-school">ENSI – National Engineering School of Computer Science</div>
+            <div class="edu-year">09/2020 – 07/2023 · Tunisia</div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-degree">Bachelor's in Mathematics and Applications</div>
+            <div class="edu-school">ISIMM – Higher Institute of Computer Science and Mathematics</div>
+            <div class="edu-year">09/2017 – 07/2020 · Tunisia</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main content -->
+      <div class="main-content">
+
+        <!-- Production Apps -->
+        <div class="section">
+          <div class="section-title">Production Apps</div>
+
+          <div class="app-card">
+            <img src="assets/images/tunisie_promo.png" alt="Tunisie Promo" class="app-card-img">
+            <div class="app-card-body">
+              <div class="app-card-header">
+                <div class="app-title">Tunisie Promo</div>
+                <span class="live-badge">Live · 1,500+ Users</span>
+              </div>
+              <div class="app-desc">Local promotions and deals platform for Tunisian consumers. White-label Flutter app with multi-brand CI/CD deployment, real-time chat (Matrix SDK), Firebase push notifications, and offline-first architecture.</div>
+              <div class="chips" style="margin-bottom: 8px;">
+                <span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">Firebase</span><span class="chip">Matrix SDK</span><span class="chip">Hive</span><span class="chip">Fastlane</span>
+              </div>
+              <div class="store-links">
+                <a href="https://play.google.com/store/apps/details?id=com.zenifytrip.tunisiepromo.app" class="store-link play" target="_blank">▶ Play Store</a>
+                <a href="https://apps.apple.com/us/app/tunisie-promo-deals-voyage/id6758765132" class="store-link ios" target="_blank"> App Store</a>
+                <a href="https://www.tunisiepromo.tn/" class="store-link web" target="_blank">🌐 Website</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="assets/images/sunshine.png" alt="Sunshine Vacances" class="app-card-img">
+            <div class="app-card-body">
+              <div class="app-card-header">
+                <div class="app-title">Sunshine Vacances</div>
+                <span class="live-badge">Live · 450+ Users</span>
+              </div>
+              <div class="app-desc">Travel and vacation platform with booking, itinerary management, and real-time updates. Deployed from the same white-label monorepo with dedicated brand flavor and feature configuration.</div>
+              <div class="chips" style="margin-bottom: 8px;">
+                <span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">Firebase</span><span class="chip">Clean Arch</span><span class="chip">GoRouter</span>
+              </div>
+              <div class="store-links">
+                <a href="https://play.google.com/store/apps/developer?id=SunshineVacances.fr" class="store-link play" target="_blank">▶ Play Store</a>
+                <a href="https://apps.apple.com/fr/app/sunshine-vacances/id6761716491" class="store-link ios" target="_blank"> App Store</a>
+                <a href="https://www.sunshinevacances.fr/" class="store-link web" target="_blank">🌐 Website</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <img src="assets/images/zenify_trip.png" alt="ZenifyTrip" class="app-card-img">
+            <div class="app-card-body">
+              <div class="app-card-header">
+                <div class="app-title">ZenifyTrip</div>
+                <span class="live-badge">Live</span>
+              </div>
+              <div class="app-desc">Full travel platform with activity discovery, in-app payments, WebSocket real-time updates and multi-language support (EN/FR/AR). Integrated hybrid WebView for seamless authenticated web content.</div>
+              <div class="chips" style="margin-bottom: 8px;">
+                <span class="chip">Flutter</span><span class="chip">GetX</span><span class="chip">WebSocket</span><span class="chip">WebView</span><span class="chip">i18n</span>
+              </div>
+              <div class="store-links">
+                <a href="https://zenifytrip.com/" class="store-link web" target="_blank">🌐 Website</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Personal Projects -->
+        <div class="section">
+          <div class="section-title">Key Personal Projects</div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-title">BLE Proximity Tracker – Native GATT Communication</div>
+              <a href="https://github.com/abir739/ble-proximity-tracker" class="github-link" target="_blank">GitHub →</a>
+            </div>
+            <div class="project-desc">Flutter + native Kotlin BLE tracker using Platform Channels for real-time scanning and real GATT connections. Estimates device distance from RSSI and rings devices via discovered Bluetooth services.</div>
+            <div class="project-bullet">Clean Architecture enforced across the Dart/Android boundary — Dart never touches Android BLE APIs directly. 87% unit test coverage on the domain layer.</div>
+            <div class="chips" style="margin-top: 8px;">
+              <span class="chip">Flutter</span><span class="chip">Kotlin</span><span class="chip">Platform Channels</span><span class="chip">BLE/GATT</span><span class="chip">Riverpod</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-title">KotlinPosApp – Native Android POS System</div>
+              <a href="https://github.com/abir739/kotlin-pos-app" class="github-link" target="_blank">GitHub →</a>
+            </div>
+            <div class="project-desc">Full-featured Android POS with real-time barcode scanning (CameraX + ML Kit), 3-API product lookup fallback chain, and offline-first Room storage. Clean Architecture + MVVM with Hilt DI and Jetpack Compose.</div>
+            <div class="chips" style="margin-top: 8px;">
+              <span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">CameraX</span><span class="chip">ML Kit</span><span class="chip">Room</span><span class="chip">Hilt</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-title">ImageFlow – Smart Image Processing &amp; OCR</div>
+              <a href="https://github.com/abir739/imageflow_flutter" class="github-link" target="_blank">GitHub →</a>
+            </div>
+            <div class="project-desc">Intelligent Flutter app with Google ML Kit for face detection, B&amp;W filtering, document scanning with OCR text extraction, and PDF export.</div>
+            <div class="chips" style="margin-top: 8px;">
+              <span class="chip">Flutter</span><span class="chip">ML Kit</span><span class="chip">OCR</span><span class="chip">GetX</span><span class="chip">Clean Arch</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Experience — full width -->
+    <div class="full-section">
+      <div class="section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Mobile Software Engineer</div>
+          <div class="exp-duration">Jul 2023 – Present</div>
+        </div>
+        <div class="exp-company">Continuous Net · Full-time</div>
+        <ul class="exp-points">
+          <li class="exp-point">Architected 7+ packages Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI).</li>
+          <li class="exp-point">Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment × brand × user role), fully automating build, signing, and deployment workflows.</li>
+          <li class="exp-point">Engineered hybrid WebView integration (WKWebView/Android WebView) with a bidirectional JavaScript-Flutter bridge and native cookie/session sharing, enabling seamless authenticated web content within the app.</li>
+          <li class="exp-point">Owned the full lifecycle of 3 production apps across 4 travel brands (TunisiePromo: 1,500+ Users, Sunshine Vacances: 450+ Users), from architecture to App Store/Google Play deployment.</li>
+          <li class="exp-point">Implemented unit and widget tests across shared Flutter modules and Design System, ensuring cross-brand reliability and preventing regressions on critical business logic.</li>
+        </ul>
+        <div class="chips" style="margin-top: 10px;">
+          <span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">GitLab CI/CD</span><span class="chip">Fastlane</span><span class="chip">Firebase</span><span class="chip">Hive</span><span class="chip">GoRouter</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Mobile Developer (Intern)</div>
+          <div class="exp-duration">Feb 2023 – Jul 2023</div>
+        </div>
+        <div class="exp-company">Continuous Net</div>
+        <ul class="exp-points">
+          <li class="exp-point">Developed a dual-role travel app (traveler &amp; tour guide) with multi-provider authentication (Google, Facebook, email) and Riverpod state management.</li>
+          <li class="exp-point">Built responsive role-adaptive UIs from Figma designs, collaborating with backend &amp; UX/UI teams to align API contracts across Android and iOS.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Web Developer (Intern)</div>
+          <div class="exp-duration">Jun 2022 – Aug 2022</div>
+        </div>
+        <div class="exp-company">DRÄXLMAIER Group</div>
+        <ul class="exp-points">
+          <li class="exp-point">Built a PHP/Laravel document archiving system with role-based access control for 30+ internal users, supporting PDF, DOCX and image formats. Optimized database queries reducing page load time by 25%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Skills — full width -->
+    <div class="full-section" style="border-top: 1px solid #E5E7EB;">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Mobile Development</div>
+          <div class="skill-item">Flutter (cross-platform)</div>
+          <div class="skill-item">Kotlin + Jetpack Compose</div>
+          <div class="skill-item">Android SDK</div>
+          <div class="skill-item">iOS / Swift (Basic)</div>
+          <div class="skill-item">Firebase suite</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Architecture &amp; State</div>
+          <div class="skill-item">Clean Architecture (SOLID)</div>
+          <div class="skill-item">MVVM · Design System</div>
+          <div class="skill-item">Riverpod · Provider · GetX</div>
+          <div class="skill-item">Coroutines · StateFlow</div>
+          <div class="skill-item">Offline-first (Hive, Room)</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">CI/CD &amp; DevOps</div>
+          <div class="skill-item">GitLab CI/CD · GitHub Actions</div>
+          <div class="skill-item">Fastlane (iOS + Android)</div>
+          <div class="skill-item">Multi-flavor builds</div>
+          <div class="skill-item">App Store &amp; Play Store</div>
+          <div class="skill-item">Code Review · Manual QA</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Networking</div>
+          <div class="skill-item">REST APIs · GraphQL</div>
+          <div class="skill-item">Dio · Retrofit · Freezed</div>
+          <div class="skill-item">WebSockets (real-time)</div>
+          <div class="skill-item">Matrix SDK</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">IoT &amp; Hybrid</div>
+          <div class="skill-item">Bluetooth LE / GATT</div>
+          <div class="skill-item">Platform Channels</div>
+          <div class="skill-item">WebView (WKWebView / Android)</div>
+          <div class="skill-item">JS-Flutter Bridge</div>
+          <div class="skill-item">Cookie &amp; Session Sharing</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Testing &amp; Storage</div>
+          <div class="skill-item">Unit &amp; Widget Testing</div>
+          <div class="skill-item">Hive · SQLite · Room</div>
+          <div class="skill-item">SharedPreferences</div>
+          <div class="skill-item">ML Kit · OCR</div>
+          <div class="skill-item">Agile / Scrum</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background: #1E1B4B; padding: 16px 32px; text-align: center;">
+      <p style="color: rgba(255,255,255,0.6); font-size: 12px;">
+        Abir Cherif · Mobile Engineer · Tunisia · abircherif212@gmail.com ·
+        <a href="https://abir739.github.io/MyPortfolio/" style="color: #A78BFA;">abir739.github.io/MyPortfolio</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
