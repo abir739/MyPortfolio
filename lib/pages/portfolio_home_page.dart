@@ -1215,26 +1215,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: true,
               points: [
                 isFrench
-                    ? 'Architecture d\'un monorepo Flutter de 7+ packages et d\'une plateforme en marque blanche pour 4 marques, réduisant le temps de livraison par marque de 57 % grâce à l\'isolation modulaire des fonctionnalités et à une Clean Architecture orientée features (SOLID, DI), avec gestion par feature-flag et accès basé sur les rôles.'
-                    : 'Architected 7+ packages Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI), with feature-flag and role-based access.',
+                    ? 'Architecturé un monorepo Flutter de 7+ packages et une plateforme white-label pour 4 marques, réduisant de 57 % le délai de livraison par marque grâce à l\'isolation modulaire des fonctionnalités et à une Clean Architecture orientée fonctionnalités (SOLID, DI), avec gestion par feature flags et rôles.'
+                    : 'Architected a 7+ package Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI), with feature flags and role-based access.',
                 isFrench
-                    ? 'Mise en place d\'un pipeline GitLab CI/CD + Fastlane tridimensionnel (environnement × marque × rôle utilisateur), automatisant entièrement les workflows de build, signature et déploiement, éliminant ainsi les erreurs de publication manuelles.'
-                    : 'Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment x brand x user role), fully automating build, signing, and deployment workflows and eliminating manual release errors.',
+                    ? 'Mise en place d\'un pipeline GitLab CI/CD + Fastlane tridimensionnel (environnement × marque × rôle utilisateur), automatisant les workflows de build, signature et déploiement ; gestion des Git tags et du versionnage des packages/libs (snapshot et maintenance) pour assurer la traçabilité des releases.'
+                    : 'Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment × brand × user role), automating build, signing, and deployment workflows; managed Git tags and package/library versioning (snapshot and maintenance versions) to ensure release traceability.',
                 isFrench
                     ? 'Développement d\'applications Flutter évolutives avec intégrations de paiement, WebSockets, deep linking, notifications push et architecture offline-first, utilisant Riverpod, Dio et Hive.'
-                    : 'Developed scalable Flutter apps with payment integrations, WebSockets, deep linking, push notifications, and offline-first architecture using Riverpod, Dio, and Hive.',
+                    : 'Developed scalable Flutter applications with payment integrations, WebSockets, deep linking, push notifications, and offline-first architecture using Riverpod, Dio, and Hive.',
                 isFrench
-                    ? 'Intégration de Firebase (Authentication, FCM, App Distribution) et OneSignal, supportant des applications multilingues (EN/FR/AR), des interfaces RTL et l\'engagement utilisateur en temps réel.'
-                    : 'Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, supporting multilingual applications (EN/FR/AR), RTL layouts, and real-time user engagement.',
+                    ? 'Conçu une solution WebView hybride (WKWebView/Android) avec pont bidirectionnel JavaScript–Flutter et partage natif des cookies/sessions, permettant l\'accès à du contenu web authentifié sans nouvelle connexion utilisateur.'
+                    : 'Engineered a hybrid WebView solution (WKWebView/Android WebView) with a bidirectional JavaScript–Flutter bridge and native cookie/session sharing, enabling seamless access to authenticated web content without requiring users to re-login.',
                 isFrench
-                    ? 'Responsabilité complète du cycle de vie de 3 apps en production pour 4 marques de voyage (TunisiePromo : 1 500+ utilisateurs, Sunshine Vacances : 450+ utilisateurs), de l\'architecture au déploiement App Store/Google Play, tout en pilotant les décisions techniques mobiles et la collaboration backend/QA pour améliorer la qualité des intégrations API et fluidifier la livraison.'
-                    : 'Owned the full lifecycle of 3 production apps across 4 travel brands (TunisiePromo: 1,500+ Users, Sunshine Vacances: 450+ Users), from architecture to App Store/Google Play deployment, while leading mobile technical decisions and backend/QA collaboration to improve API integration quality and streamline delivery through early validation and structured code reviews.',
+                    ? 'Intégration de Firebase (Authentication, FCM, App Distribution) et OneSignal, avec internationalisation Flutter (i18n), clés de traduction EN/FR/AR, gestion RTL et localisation multi-marques.'
+                    : 'Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, with Flutter internationalization (i18n), EN/FR/AR localization keys, RTL support, and multi-brand localization.',
                 isFrench
-                    ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques et prévenant les régressions sur la logique métier critique.'
-                    : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability and preventing regressions on critical business logic.',
+                    ? 'Gestion complète du cycle de release iOS et Android pour 4 marques, incluant certificats et provisioning profiles, TestFlight/App Store Connect, signatures Android, Play Console et canaux de test, jusqu\'à la publication de 3 applications en production (1 950+ utilisateurs actifs).'
+                    : 'Managed the complete iOS and Android release lifecycle across 4 brands, including certificates and provisioning profiles, TestFlight/App Store Connect, Android signing, Play Console and testing tracks, through the publication of 3 production applications serving 1,950+ active users.',
                 isFrench
-                    ? 'Conception d\'une intégration WebView hybride (WKWebView/Android WebView) avec un pont bidirectionnel JavaScript-Flutter et partage de cookies/session natif, permettant l\'accès à du contenu web authentifié sans nécessiter de reconnexion.'
-                    : 'Engineered hybrid WebView integration (WKWebView/Android WebView) with a bidirectional JavaScript-Flutter bridge and native cookie/session sharing, enabling seamless authenticated web content within the app without requiring users to re-login.',
+                    ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques.'
+                    : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability.',
               ],
               technologies: [
                 'Flutter',
