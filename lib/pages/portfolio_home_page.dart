@@ -813,7 +813,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         'icon': Icons.phone_android,
       },
       {
-        'value': '7+',
+        'value': '11',
         'label': isFrench ? 'Packages Flutter' : 'Flutter Packages',
         'icon': Icons.extension_rounded,
       },
@@ -975,8 +975,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
             const SizedBox(height: 20),
             Text(
               isFrench
-                  ? 'Ingénieure Mobile avec 3+ ans de livraison d\'apps Flutter en production, architecturant 7+ packages et un monorepo en marque blanche alimentant 4 marques de voyage et 1 950+ utilisateurs actifs, réduisant le temps de livraison de 57 % grâce à la Clean Architecture et l\'automatisation CI/CD complète. Expérimentée dans la gestion end-to-end des apps, de l\'architecture à la publication App Store/Google Play, en environnements Agile multilingues (EN/FR/AR).'
-                  : 'Mobile Engineer with 3+ years shipping production Flutter apps, architecting 7+ packages and a white-label monorepo powering 4 travel brands and 1,950+ active users, cutting delivery time by 57% through Clean Architecture and full CI/CD automation. Experienced owning apps end-to-end, from architecture to App Store/Google Play release, in multilingual (EN/FR/AR) Agile environments.',
+                  ? 'Développeuse mobile avec plus de 3 ans d\'expérience dans la conception, le développement et le déploiement d\'applications Flutter en production sur Android et iOS. Responsable de l\'architecture d\'une plateforme mobile en marque blanche composée de 11 packages, déployée auprès de 4 marques du secteur du voyage, ayant permis de réduire de 57 % les délais de livraison grâce à la Clean Architecture, à une architecture modulaire et à l\'automatisation CI/CD. Maîtrise du cycle complet de développement mobile, de la conception de l\'architecture à l\'implémentation, jusqu\'à la publication sur l\'App Store et Google Play.'
+                  : 'Mobile Software Engineer with 3+ years of experience building and shipping production Flutter applications for Android and iOS. Responsible for architecting an 11-package, white-label mobile platform powering 4 travel brands, reducing delivery time by 57% through Clean Architecture, modular design, and CI/CD automation. Experienced in end-to-end mobile engineering, from architecture and implementation to App Store and Google Play releases.',
               style: GoogleFonts.poppins(
                 fontSize: 15,
                 color: _subtextColor,
@@ -1075,8 +1075,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
         'icon': Icons.extension_rounded,
         'title': 'White-label & SDK',
         'desc': isFrench
-            ? '7+ packages Flutter réutilisables réduisant le temps de développement de 40%'
-            : '7+ reusable Flutter packages reducing development time by 40%',
+            ? 'Monorepo de 11 packages Flutter pour 4 marques, réduisant de 57 % les délais de livraison'
+            : '11-package Flutter monorepo powering 4 brands, cutting delivery time by 57%',
         'color': const Color(0xFFF59E0B),
       },
     ];
@@ -1215,26 +1215,26 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: true,
               points: [
                 isFrench
-                    ? 'Architecturé un monorepo Flutter de 7+ packages et une plateforme white-label pour 4 marques, réduisant de 57 % le délai de livraison par marque grâce à l\'isolation modulaire des fonctionnalités et à une Clean Architecture orientée fonctionnalités (SOLID, DI), avec gestion par feature flags et rôles.'
-                    : 'Architected a 7+ package Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI), with feature flags and role-based access.',
+                    ? 'Conçu et piloté l\'architecture d\'un monorepo Flutter de 11 packages pour 4 marques et 5 backends, réduisant de 57 % les délais de livraison grâce à la Clean Architecture, aux modules réutilisables et aux feature flags.'
+                    : 'Architected an 11-package Flutter monorepo powering white-label travel applications across 4 brands and 5 backends, reducing per-brand delivery time by 57% through reusable modules, feature-driven Clean Architecture, shared design systems, dependency injection and per-brand feature flags with role-based access.',
                 isFrench
-                    ? 'Mise en place d\'un pipeline GitLab CI/CD + Fastlane tridimensionnel (environnement × marque × rôle utilisateur), automatisant les workflows de build, signature et déploiement ; gestion des Git tags et du versionnage des packages/libs (snapshot et maintenance) pour assurer la traçabilité des releases.'
-                    : 'Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment × brand × user role), automating build, signing, and deployment workflows; managed Git tags and package/library versioning (snapshot and maintenance versions) to ensure release traceability.',
+                    ? 'Développé des parcours complets de réservation (hôtels, transferts et activités), en collaboration avec les équipes backend sur les contrats d\'API, les règles métier et la gestion des erreurs.'
+                    : 'Built end-to-end booking workflows for hotels, transfers and activities from backend API documentation, collaborating with backend engineers on API contracts, error handling and business rules.',
                 isFrench
-                    ? 'Développement d\'applications Flutter évolutives avec intégrations de paiement, WebSockets, deep linking, notifications push et architecture offline-first, utilisant Riverpod, Dio et Hive.'
-                    : 'Developed scalable Flutter applications with payment integrations, WebSockets, deep linking, push notifications, and offline-first architecture using Riverpod, Dio, and Hive.',
+                    ? 'Conçu un package de paiement mutualisé entre plusieurs produits de réservation, intégrant des passerelles de paiement et la confirmation des transactions en temps réel via Socket.IO et Firebase Cloud Messaging.'
+                    : 'Engineered a reusable payment package shared across multiple booking products, integrating in-app payment gateway pages with real-time transaction confirmation through Socket.IO and Firebase push notification events.',
                 isFrench
-                    ? 'Conçu une solution WebView hybride (WKWebView/Android) avec pont bidirectionnel JavaScript–Flutter et partage natif des cookies/sessions, permettant l\'accès à du contenu web authentifié sans nouvelle connexion utilisateur.'
-                    : 'Engineered a hybrid WebView solution (WKWebView/Android WebView) with a bidirectional JavaScript–Flutter bridge and native cookie/session sharing, enabling seamless access to authenticated web content without requiring users to re-login.',
+                    ? 'Configuré les environnements multi-marques (Android Flavors, iOS Schemes et Firebase) et contribué à l\'automatisation CI/CD avec GitLab, Firebase App Distribution et Google Play.'
+                    : 'Implemented multi-brand build configurations (Android flavors, iOS schemes and per-brand Firebase configuration) and contributed to GitLab CI/CD automation, including Firebase App Distribution and Google Play internal releases.',
                 isFrench
-                    ? 'Intégration de Firebase (Authentication, FCM, App Distribution) et OneSignal, avec internationalisation Flutter (i18n), clés de traduction EN/FR/AR, gestion RTL et localisation multi-marques.'
-                    : 'Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, with Flutter internationalization (i18n), EN/FR/AR localization keys, RTL support, and multi-brand localization.',
+                    ? 'Coordonné les livraisons sur plusieurs dépôts Git : gestion des versions, branches de maintenance, dépendances et intégration de correctifs.'
+                    : 'Coordinated releases across multiple repositories through Git version tags, maintenance branches, dependency versioning and cherry-picked patches.',
                 isFrench
-                    ? 'Gestion complète du cycle de release iOS et Android pour 4 marques, incluant certificats et provisioning profiles, TestFlight/App Store Connect, signatures Android, Play Console et canaux de test, jusqu\'à la publication de 3 applications en production (1 950+ utilisateurs actifs).'
-                    : 'Managed the complete iOS and Android release lifecycle across 4 brands, including certificates and provisioning profiles, TestFlight/App Store Connect, Android signing, Play Console and testing tracks, through the publication of 3 production applications serving 1,950+ active users.',
+                    ? 'Conçu un système centralisé d\'internationalisation EN/FR avec gestion des langues par marque et mis en place des tests unitaires et de widgets pour les parcours de réservation et les intégrations API.'
+                    : 'Developed a centralized EN/FR localization system merging translations across packages, with per-brand default language settings; implemented unit and widget tests for booking workflows and API integrations.',
                 isFrench
-                    ? 'Mise en place de tests unitaires et de widgets sur les modules Flutter partagés et les composants du Design System, garantissant la fiabilité inter-marques.'
-                    : 'Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability.',
+                    ? 'Piloté le cycle complet de publication de 3 applications en production sur iOS et Android : certificats, profils de provisionnement, TestFlight, Google Play, soumissions et corrections des rejets.'
+                    : 'Owned the complete mobile release lifecycle for 3 production applications across iOS and Android, managing signing certificates, provisioning profiles, TestFlight, Google Play testing tracks, store submissions, review feedback and rejection fixes.',
               ],
               technologies: [
                 'Flutter',
@@ -1245,6 +1245,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 'Dio',
                 'Hive',
                 'Firebase',
+                'Socket.IO',
                 'OneSignal',
                 'GoRouter',
                 'Provider',
@@ -1262,17 +1263,17 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: false,
               points: [
                 isFrench
-                    ? 'Développé une application de gestion de voyage double-rôle (voyageur & guide) avec authentification multi-fournisseurs (Google, Facebook, email)'
-                    : 'Developed a dual-role travel app (traveler & tour guide) with multi-provider authentication (Google, Facebook, email) and Riverpod state management',
+                    ? 'Développement d\'une application Flutter utilisant Firebase Authentication et Firestore, avec mise en œuvre d\'une authentification sécurisée multi fournisseurs et d\'un contrôle d\'accès basé sur les rôles pour 3 profils utilisateurs.'
+                    : 'Developed a cross-platform Flutter application using Firebase Authentication and Firestore, implementing secure multi-provider authentication and role-based access control for 3 user roles.',
                 isFrench
-                    ? 'Conçu des interfaces responsives et adaptatives depuis des maquettes Figma, collaborant avec les équipes backend et UI/UX pour aligner les contrats API'
-                    : 'Built responsive role-adaptive UIs from Figma designs, collaborating with backend & UX/UI teams to align API contracts across Android and iOS',
+                    ? 'Création de +15 écrans prêts pour la production à partir de maquettes Figma, garantissant une cohérence UI responsive sur les appareils Android et iOS.'
+                    : 'Built 15+ production-ready screens from Figma designs, ensuring responsive UI consistency across Android and iOS devices.',
               ],
               technologies: [
                 'Flutter',
                 'Riverpod',
-                'REST APIs',
-                'Firebase',
+                'Firebase Auth',
+                'Firestore',
                 'Figma',
               ],
             ),
@@ -1315,11 +1316,11 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
               isCurrent: false,
               points: [
                 isFrench
-                    ? 'Développé une application Flutter (web + mobile) digitalisant les services municipaux (réservation de tickets, rendez-vous, chat WebSocket) avec Provider et Hive'
-                    : 'Built a Flutter app (web + mobile) digitalizing municipal services (ticket booking, appointments, WebSocket chat) with Provider and Hive for state management',
+                    ? 'Création et personnalisation d\'applications Flutter (web et mobile) pour la digitalisation des services municipaux (billetterie, rendez-vous, chat en temps réel), en utilisant Provider et Hive pour la gestion d\'état et le stockage local.'
+                    : 'Created and customized Flutter apps (web and mobile) digitalizing municipal services (ticketing, appointments, real-time chat) using Provider and Hive for state management and local storage.',
                 isFrench
-                    ? 'Intégré Google Maps, Firebase pour l\'authentification et un système basé sur les rôles (citoyens, employés, admins) avec signalement d\'incidents'
-                    : 'Integrated Google Maps, Firebase authentication, and role-based system (citizens, employees, admins) with incident reporting and media uploads',
+                    ? 'Intégration de Firebase (Auth, FCM, Firestore) et Google Maps afin de concevoir un système basé sur les rôles, permettant la synchronisation des données en temps réel et le partage de médias.'
+                    : 'Integrated Firebase (Authentication, FCM, Firestore) and Google Maps to build a role-based system (citizens, staff), enabling real-time data sync, incident reporting, and media uploads.',
               ],
               technologies: [
                 'Flutter',
@@ -1712,8 +1713,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ? 'BLE Proximity Tracker – Communication GATT Native'
                   : 'BLE Proximity Tracker – Native GATT Communication',
               description: isFrench
-                  ? 'Traceur de proximité BLE en Flutter et Kotlin natif utilisant les Platform Channels pour le scan en temps réel et la communication GATT. Suit la distance d\'un appareil via le RSSI, alerte en cas de perte de portée après une durée soutenue configurable, et se connecte en GATT pour découvrir les services Bluetooth réels d\'un appareil et tenter de le faire sonner.'
-                  : 'Flutter + native Kotlin BLE proximity tracker using Platform Channels for real-time scanning and real GATT communication. Estimates a tracked device\'s distance from RSSI, alerts once it\'s been out of range for a configurable sustained duration, and connects via GATT to discover a device\'s actual Bluetooth services and attempt to ring it.',
+                  ? 'Développement d\'un tracker de proximité BLE (Flutter + Kotlin natif) via Platform Channels, avec estimation de distance en temps réel basée sur le RSSI, détection de sortie de portée soutenue (testée avec horloge injectable), et résolution des appareils par ID fabricant.'
+                  : 'Built a Flutter + native Kotlin BLE proximity tracker via Platform Channels, with real-time RSSI-based distance estimation, sustained out-of-range detection (injectable-clock tested), and manufacturer-ID device resolution.',
               githubUrl: 'https://github.com/abir739/ble-proximity-tracker',
               imagePath: 'assets/images/ble_tracker.png',
               technologies: [
@@ -1737,8 +1738,8 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   ? 'KotlinPosApp – Système POS Android Natif'
                   : 'KotlinPosApp – Native Android POS System',
               description: isFrench
-                  ? 'Application POS Android complète avec scan de codes-barres en temps réel (CameraX + ML Kit), recherche automatique des produits via une chaîne de fallback sur 3 APIs, et stockage local offline-first avec Room. Architecture Clean Architecture + MVVM, Hilt pour l\'injection de dépendances et Jetpack Compose avec Material3.'
-                  : 'Full-featured Android POS app with real-time barcode scanning (CameraX + ML Kit), automatic product lookup via a 3-API fallback chain, and offline-first local storage using Room. Architected with Clean Architecture and MVVM, using Hilt for DI, StateFlow for reactive UI, and Jetpack Compose with Material3.',
+                  ? 'Application Android POS complète avec lecture de codes-barres en temps réel (CameraX + ML Kit), recherche automatique de produits via une chaîne de secours de 3 APIs, et stockage local offline-first avec Room. Codebase propre et testable suivant MVVM et la Clean Architecture, avec Hilt pour l\'injection de dépendances et StateFlow pour une UI réactive.'
+                  : 'Native Android POS application with real-time barcode scanning (CameraX + ML Kit), intelligent product lookup via a 3-API fallback chain, and offline-first inventory management using Room. Scalable Clean Architecture/MVVM codebase with Hilt, Retrofit, Coroutines, and StateFlow for reactive UI, enabling isolated, independently testable feature modules.',
               githubUrl: 'https://github.com/abir739/kotlin-pos-app',
               imagePath: 'assets/images/kotlin-pos-app.png',
               technologies: [
@@ -1749,6 +1750,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                 'Hilt',
                 'Room',
                 'Retrofit',
+                'Coroutines',
                 'MVVM',
                 'Clean Architecture',
               ],
@@ -2299,6 +2301,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     'Dio',
                     'Retrofit',
                     'WebSockets',
+                    'Socket.IO',
                   ], const Color(0xFFF59E0B)),
                   const SizedBox(height: 16),
                   _buildSkillCategoryCard(
@@ -2312,7 +2315,7 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                   _buildSkillCategoryCard(
                     'CI/CD & Tools',
                     Icons.rocket_launch_rounded,
-                    ['GitLab CI/CD', 'GitHub Actions', 'Fastlane', 'Xcode'],
+                    ['Git', 'GitLab CI/CD', 'GitHub Actions', 'Fastlane', 'Multi-flavor Builds', 'Xcode'],
                     const Color(0xFFEC4899),
                   ),
                   const SizedBox(height: 16),
@@ -2324,7 +2327,9 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                       'Widget Testing',
                       'Manual QA',
                       'Code Review',
-                      'App Store & Play Store',
+                      'App Store Connect',
+                      'TestFlight',
+                      'Google Play Console',
                     ],
                     const Color(0xFF10B981),
                   ),
@@ -2335,8 +2340,10 @@ class _PortfolioHomePageState extends State<PortfolioHomePage>
                     [
                       'MVVM',
                       'Clean Architecture',
+                      'Modular Architecture',
+                      'SOLID',
+                      'Dependency Injection',
                       'Design System',
-                      'Atomic Design',
                       'Agile/Scrum',
                     ],
                     const Color(0xFF6366F1),

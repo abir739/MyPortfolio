@@ -487,7 +487,7 @@
         <div class="stat-label">Production Apps</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">7+</div>
+        <div class="stat-value">11</div>
         <div class="stat-label">Flutter Packages</div>
       </div>
       <div class="stat-item">
@@ -513,7 +513,7 @@
         <div class="section">
           <div class="section-title">Summary</div>
           <p class="summary-text">
-            Mobile Engineer with 3+ years shipping production Flutter apps, architecting 7+ packages and a white-label monorepo powering 4 travel brands and 1,950+ active users, cutting delivery time by 57% through Clean Architecture and full CI/CD automation.
+            Mobile Software Engineer with 3+ years of experience building and shipping production Flutter applications for Android and iOS. Responsible for architecting an 11-package, white-label mobile platform powering 4 travel brands, reducing delivery time by 57% through Clean Architecture, modular design, and CI/CD automation. Experienced in end-to-end mobile engineering, from architecture and implementation to App Store and Google Play releases.
           </p>
         </div>
 
@@ -646,7 +646,7 @@
               <div class="project-title">BLE Proximity Tracker – Native GATT Communication</div>
               <a href="https://github.com/abir739/ble-proximity-tracker" class="github-link" target="_blank">GitHub →</a>
             </div>
-            <div class="project-desc">Flutter + native Kotlin BLE tracker using Platform Channels for real-time scanning and real GATT connections. Estimates device distance from RSSI and rings devices via discovered Bluetooth services.</div>
+            <div class="project-desc">Flutter + native Kotlin BLE proximity tracker via Platform Channels, with real-time RSSI-based distance estimation, sustained out-of-range detection (injectable-clock tested), and manufacturer-ID device resolution.</div>
             <div class="project-bullet">Clean Architecture enforced across the Dart/Android boundary — Dart never touches Android BLE APIs directly. 87% unit test coverage on the domain layer.</div>
             <div class="chips" style="margin-top: 8px;">
               <span class="chip">Flutter</span><span class="chip">Kotlin</span><span class="chip">Platform Channels</span><span class="chip">BLE/GATT</span><span class="chip">Riverpod</span>
@@ -658,7 +658,7 @@
               <div class="project-title">KotlinPosApp – Native Android POS System</div>
               <a href="https://github.com/abir739/kotlin-pos-app" class="github-link" target="_blank">GitHub →</a>
             </div>
-            <div class="project-desc">Full-featured Android POS with real-time barcode scanning (CameraX + ML Kit), 3-API product lookup fallback chain, and offline-first Room storage. Clean Architecture + MVVM with Hilt DI and Jetpack Compose.</div>
+            <div class="project-desc">Native Android POS with real-time barcode scanning (CameraX + ML Kit), intelligent product lookup via a 3-API fallback chain, and offline-first inventory management using Room. Clean Architecture/MVVM with Hilt, Retrofit, Coroutines and StateFlow, enabling independently testable feature modules.</div>
             <div class="chips" style="margin-top: 8px;">
               <span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">CameraX</span><span class="chip">ML Kit</span><span class="chip">Room</span><span class="chip">Hilt</span>
             </div>
@@ -690,15 +690,16 @@
         </div>
         <div class="exp-company">Continuous Net · Full-time</div>
         <ul class="exp-points">
-          <li class="exp-point">Architected a 7+ package Flutter monorepo and white-label platform for 4 brands, reducing per-brand delivery time by 57% through modular feature isolation and feature-driven Clean Architecture (SOLID, DI), with feature flags and role-based access.</li>
-          <li class="exp-point">Built a 3-dimensional GitLab CI/CD + Fastlane pipeline (environment × brand × user role), automating build, signing, and deployment workflows; managed Git tags and package/library versioning (snapshot and maintenance versions) to ensure release traceability.</li>
-          <li class="exp-point">Engineered a hybrid WebView solution (WKWebView/Android WebView) with a bidirectional JavaScript–Flutter bridge and native cookie/session sharing, enabling seamless access to authenticated web content without requiring users to re-login.</li>
-          <li class="exp-point">Integrated Firebase (Authentication, FCM, App Distribution) and OneSignal, with Flutter internationalization (i18n), EN/FR/AR localization keys, RTL support, and multi-brand localization.</li>
-          <li class="exp-point">Managed the complete iOS and Android release lifecycle across 4 brands, including certificates and provisioning profiles, TestFlight/App Store Connect, Android signing, Play Console and testing tracks, through the publication of 3 production applications serving 1,950+ active users.</li>
-          <li class="exp-point">Implemented unit and widget tests across shared Flutter modules and Design System components, ensuring cross-brand reliability.</li>
+          <li class="exp-point">Architected an 11-package Flutter monorepo powering white-label travel applications across 4 brands and 5 backends, reducing per-brand delivery time by 57% through reusable modules, feature-driven Clean Architecture, shared design systems, dependency injection and per-brand feature flags with role-based access.</li>
+          <li class="exp-point">Built end-to-end booking workflows for hotels, transfers and activities from backend API documentation, collaborating with backend engineers on API contracts, error handling and business rules.</li>
+          <li class="exp-point">Engineered a reusable payment package shared across multiple booking products, integrating in-app payment gateway pages with real-time transaction confirmation through Socket.IO and Firebase push notification events.</li>
+          <li class="exp-point">Implemented multi-brand build configurations (Android flavors, iOS schemes and per-brand Firebase configuration) and contributed to GitLab CI/CD automation, including Firebase App Distribution and Google Play internal releases.</li>
+          <li class="exp-point">Coordinated releases across multiple repositories through Git version tags, maintenance branches, dependency versioning and cherry-picked patches.</li>
+          <li class="exp-point">Developed a centralized EN/FR localization system merging translations across packages, with per-brand default language settings; implemented unit and widget tests for booking workflows and API integrations.</li>
+          <li class="exp-point">Owned the complete mobile release lifecycle for 3 production applications across iOS and Android, managing signing certificates, provisioning profiles, TestFlight, Google Play testing tracks, store submissions, review feedback and rejection fixes.</li>
         </ul>
         <div class="chips" style="margin-top: 10px;">
-          <span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">GitLab CI/CD</span><span class="chip">Fastlane</span><span class="chip">Firebase</span><span class="chip">Hive</span><span class="chip">GoRouter</span>
+          <span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">GitLab CI/CD</span><span class="chip">Fastlane</span><span class="chip">Firebase</span><span class="chip">Socket.IO</span><span class="chip">Hive</span><span class="chip">GoRouter</span>
         </div>
       </div>
 
@@ -709,8 +710,8 @@
         </div>
         <div class="exp-company">Continuous Net</div>
         <ul class="exp-points">
-          <li class="exp-point">Developed a dual-role travel app (traveler &amp; tour guide) with multi-provider authentication (Google, Facebook, email) and Riverpod state management.</li>
-          <li class="exp-point">Built responsive role-adaptive UIs from Figma designs, collaborating with backend &amp; UX/UI teams to align API contracts across Android and iOS.</li>
+          <li class="exp-point">Developed a cross-platform Flutter application using Firebase Authentication and Firestore, implementing secure multi-provider authentication and role-based access control for 3 user roles.</li>
+          <li class="exp-point">Built 15+ production-ready screens from Figma designs, ensuring responsive UI consistency across Android and iOS devices.</li>
         </ul>
       </div>
 
@@ -740,7 +741,7 @@
         </div>
         <div class="skill-group">
           <div class="skill-group-title">Architecture &amp; State</div>
-          <div class="skill-item">Clean Architecture (SOLID)</div>
+          <div class="skill-item">Clean &amp; Modular Architecture (SOLID, DI)</div>
           <div class="skill-item">MVVM · Design System</div>
           <div class="skill-item">Riverpod · Provider · GetX</div>
           <div class="skill-item">Coroutines · StateFlow</div>
@@ -751,14 +752,14 @@
           <div class="skill-item">GitLab CI/CD · GitHub Actions</div>
           <div class="skill-item">Fastlane (iOS + Android)</div>
           <div class="skill-item">Multi-flavor builds</div>
-          <div class="skill-item">App Store &amp; Play Store</div>
+          <div class="skill-item">App Store Connect · TestFlight · Play Console</div>
           <div class="skill-item">Code Review · Manual QA</div>
         </div>
         <div class="skill-group">
           <div class="skill-group-title">Networking</div>
           <div class="skill-item">REST APIs · GraphQL</div>
           <div class="skill-item">Dio · Retrofit · Freezed</div>
-          <div class="skill-item">WebSockets (real-time)</div>
+          <div class="skill-item">WebSockets · Socket.IO</div>
           <div class="skill-item">Matrix SDK</div>
         </div>
         <div class="skill-group">
